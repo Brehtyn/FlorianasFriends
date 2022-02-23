@@ -42,11 +42,11 @@ Start the server
 The layouts folder only contains one file currently which is the default.vue file. This
 file is the layout structure of the entire website and must be included. It would behoove 
 the developers to make a <template> <header> <nuxt> <footer> <template> structure where
-the entire site is wrapped in a template and with the nuxt app being injected into the template.
-The header and footer would always appear in the app with only the nuxt content changing.
+the entire site is wrapped in a template and with the Nuxt app being injected into the template.
+The header and footer would always appear in the app with only the Nuxt content changing.
 
 ### Middleware folder
-The middleware folder only has an auth.js file in it currently and it must be configged 
+The middleware folder only has an auth.js file in it currently and it must be configured
 in the nuxt.config.js file prior to it being read in the app. This file checks the route
 trying to be reached as well as the authentication of a user. If the user isn't authenticated
 and is trying to reach a protected route they will be redirected. Upon authentication through
@@ -65,11 +65,11 @@ the store can be found here
 
 ### nuxt.config.js
 #### Routing
-This file contains all of the configs for nuxt including plugins, middleware, metadata etc. 
-Nuxt using file routing automatically so the pages folder contains automatic routing except
+This file contains all of the configs for Nuxt including plugins, middleware, metadata etc. 
+Nuxt uses file routing automatically: the pages folder contains automatic routing except
 for dynamic routing such as pet:id where the individual
 pet is necessary. All of that can be configured in the router portion of the config file.
-More information on dynamic routing for nuxt can be found here
+More information on dynamic routing for Nuxt can be found here
 - [@NuxtDynamicRouting](https://nuxtjs.org/examples/routing/dynamic-pages)
 
 Also configured in the router is the middleware. The only configuration currently is for
