@@ -15,7 +15,7 @@
             <NuxtLink to="/"> New Post </NuxtLink>
           </li>
           <li class="hover:opacity-80">
-            <button>Log Out</button>
+            <button @click="$router.push('/auth/signout')">Logout</button>
           </li>
           <li class="hover:opacity-80">
             <button><img class="max-w-xs" src="../assets/menu.svg" /></button>
