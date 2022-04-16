@@ -83,6 +83,11 @@ export default {};
 </script>
 
 <style>
+hr {
+  border-color: rgb(112, 112, 112);
+  margin: 15px 0;
+}
+
 .footer_image {
   background-image: url("~/assets/footer_backdrop.jpg");
   background-size: cover;
@@ -99,10 +104,5 @@ footer {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-}
-
-hr {
-  border-color: rgb(112, 112, 112);
-  margin: 15px 0;
 }
 </style>
