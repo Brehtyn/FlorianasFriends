@@ -50,10 +50,40 @@
           </div>
         </div>
         <div class="pt-4">
-          <button type="submit" @click="() => login()" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3 input">
+          <button
+            type="submit"
+            @click="() => login()"
+            class="
+              shadow
+              appearance-none
+              border
+              rounded
+              w-full
+              py-2
+              px-3
+              text-grey-darker
+              mb-3
+              input
+            "
+          >
             Log In
           </button>
-          <button type="submit" @click="() => forgotPassword()" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3 input">
+          <button
+            type="submit"
+            @click="() => forgotPassword()"
+            class="
+              shadow
+              appearance-none
+              border
+              rounded
+              w-full
+              py-2
+              px-3
+              text-grey-darker
+              mb-3
+              input
+            "
+          >
             Forgot Password
           </button>
         </div>
