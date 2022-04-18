@@ -39,9 +39,6 @@
             <li class="mb-2">
               <a href="#"> Home </a>
             </li>
-            <li class="mb-2">
-              <a href="#"> Tips </a>
-            </li>
           </ul>
         </nav>
         <nav class="w-1/2 pl-12">
@@ -63,7 +60,7 @@
           </ul>
         </nav>
       </div>
-      <hr />
+      <hr class="mt-16" />
       <div class="container-split-50 mt-6">
         <div class="w-1/2">© Copyright 2022 by Floriana'sFriends.com</div>
         <nav class="w-1/2 align-text-right">

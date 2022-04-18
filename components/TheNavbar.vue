@@ -19,30 +19,37 @@
         <li class="hover:opacity-80">
           <NuxtLink to="/"> Donate </NuxtLink>
         </li>
-        <li class="hover:opacity-80">
-          <button @click="$router.push('/auth/signout')">Logout</button>
-        </li>
       </ul>
       <li class="left-border">
         <div class="flex row w-full pl-4">
-          <button class="w-7 hover:opacity-60 mx-4"> 
+          <button class="w-7 hover:opacity-60 mx-4">
             <img src="~assets/search.svg" />
           </button>
-          <button class="w-12 hover:opacity-60 mx-2"> 
+          <button @click="showProfilebar = true" class="w-12 hover:opacity-60 mx-2">
             <img src="~assets/profile.svg" />
           </button>
         </div>
       </li>
     </ul>
+    <TheProfilebar v-show="showProfilebar" @close-Profilebar="showProfilebar = false" />
   </nav>
 </template>
 
 <script>
-export default {};
+import TheProfilebar from "~/components/TheProfilebar.vue";
+
+export default {
+  components: { TheProfilebar },
+  data() {
+    return {
+      showProfilebar: false,
+    };
+  },
+};
 </script>
 
 <style>
-  .left-border {
-    border-left: 1px solid #eaeaea;
-  }
+.left-border {
+  border-left: 1px solid var(--clr-whiteborder);
+}
 </style>

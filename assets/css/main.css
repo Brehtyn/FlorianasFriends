@@ -5,6 +5,9 @@
 :root {
     --ff-main: 'DM Sans', sans-serif;
     --ff-accent: 'FredokaOne', cursive;
+
+    --clr-whiteborder: #eaeaea;
+    --clr-whitebg: #f9fafb;
 }
 
 .accented-text {
@@ -23,3 +26,12 @@
     height: 100%;
 }
 
+
+@keyframes left-slide-in {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
