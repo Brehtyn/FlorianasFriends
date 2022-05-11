@@ -8,16 +8,16 @@
       </li>
       <ul class="flex row w-full justify-evenly p-2">
         <li class="hover:opacity-80">
-          <NuxtLink to="landing.vue"> Home </NuxtLink>
+          <NuxtLink to="/auth/landing"> Home </NuxtLink>
         </li>
         <li class="hover:opacity-80">
-          <NuxtLink to="/"> Tips </NuxtLink>
+          <NuxtLink to="/auth/tips"> Tips </NuxtLink>
         </li>
         <li class="hover:opacity-80">
-          <NuxtLink to="/"> Mission </NuxtLink>
+          <NuxtLink to="/auth/mission"> Mission </NuxtLink>
         </li>
         <li class="hover:opacity-80">
-          <NuxtLink to="/"> Donate </NuxtLink>
+          <NuxtLink to="/auth/donate"> Donate </NuxtLink>
         </li>
       </ul>
       <li class="left-border">
