@@ -7,6 +7,7 @@
       </button>
       <div class="profilebar_contents">
         <img class="w-1/4" src="~assets/profile.svg" />
+        <span> User Logged In </span>
         <hr />
         <nav>
           <ul>

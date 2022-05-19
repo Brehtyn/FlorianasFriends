@@ -18,16 +18,16 @@
       </svg>
     </div>
 
-    <nav>
-      <NuxtLink
-        class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3 input"
-        to="/auth/signin">Signin</NuxtLink>
-      <NuxtLink 
-        class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3 input"
-        to="/auth/signup">Signup</NuxtLink>
-    </nav>
-
-    <test />
+    <div class="align-content-center">
+      <nav>
+        <NuxtLink
+          class="shadow appearance-none border rounded w-full py-3 px-6 text-grey-darker m-20 input"
+          to="/auth/signin">Signin</NuxtLink>
+        <NuxtLink 
+          class="shadow appearance-none border rounded w-full py-3 px-6 text-grey-darker m-20 input"
+          to="/auth/signup">Signup</NuxtLink>
+      </nav>
+    </div>
 
   </div>
 </template>
@@ -36,24 +36,26 @@
 export default {};
 </script>
 
-<style>
-  .landingpage_banner {
-    background-image: url("~/assets/landing_banner.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: none;
-    color: #fff;
-    margin-bottom: 2rem;
+<style scoped>
+
+.landingpage_banner {
+  background-image: url("~/assets/landing_banner.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: none;
+  color: #fff;
+  margin-bottom: 2rem;
 }
 .landingpage_banner_inside {
-    padding: 8rem 4rem;
-    font-size: 4.6em;
-    font-family: var(--ff-accent);
-    font-weight: 400;
+  padding: 8rem 4rem;
+  font-size: 4.6em;
+  font-family: var(--ff-accent);
+  font-weight: 400;
 }
 .landingpage_banner_inside > p {
-    padding-top: 2rem;
-    font-size: .4em;
-    font-family: var(--ff-main);
+  padding-top: 2rem;
+  font-size: .4em;
+  font-family: var(--ff-main);
 }
+
 </style>
