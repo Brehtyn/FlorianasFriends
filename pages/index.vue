@@ -1,80 +1,94 @@
 <template>
-  <div class="align-content-center">
-    <h1>Logged In Dashboard</h1>
-    <p>You are now logged in as {{ $nuxt.$fire.auth.currentUser.email }}</p>
+  <div class="index_background align-content-center">
+    <div class="index_dashboard post_style">
+      <h1>Logged In Dashboard</h1>
+      <p>You are now logged in as {{ $nuxt.$fire.auth.currentUser.email }}</p>
+    </div>
 
-    <br /><br /><br />
-
-    <div class="individual_post">
-
-      <div class="pet_top_wrapper">
-
-        <div class="pet_data_area">
-          
-          <div class="pet_data">
-            <div class="profile_pic">
-              <img class="" src="~assets/profile.svg" />
-            </div>
-
-            <div class="pet_data_textarea">
-              <div>
-                <h2>
-                  <span> {{ pets.pet_name }} </span>
-                  <span> from </span>
-                  <span> {{ pets.user_name }} </span>
-                </h2>
-              </div>
-              <div>
-                <h3>
-                  <span> Lost on </span>
-                  <span> {{ pets.date_lost }} </span>
-                </h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="pet_comments">
-            <h2>Comments:</h2>
-            <div>
-              <p v-for="comment in pets.leads" :key="comment">
-                {{ comment }}
-              </p>
-            </div>
-          </div>
-
+    <div class="individual_post post_style shadow shadow-lg">
+      <div class="pet_data">
+        <div class="profile_pic">
+          <img src="~assets/profile.svg" />
         </div>
 
-        <div class="pet_picture_area"> <img class="pet_picture" src="~/assets/footer_backdrop.jpg"/> </div>
-
+        <div class="pet_data_textarea">
+          <div>
+            <h2>
+              <span> {{ pets.pet_name }} </span>
+              <span> from </span>
+              <span> {{ pets.user_name }} </span>
+            </h2>
+          </div>
+          <div>
+            <h3>
+              <span> Lost on </span>
+              <span> {{ pets.date_lost }} </span>
+            </h3>
+          </div>
+        </div>
       </div>
 
-      <div class="pet_numbers"></div>
+      <div class="picture_area">
+        <img src="~/assets/footer_backdrop.jpg" />
+      </div>
 
+      <div class="post_buttons">
+        <span>
+          <img src="~assets/heart.svg" />
+          <img src="~assets/chat.svg" />
+        </span>
+        <span>
+          <img src="~assets/info.svg" />
+          <img src="~assets/save.svg" />
+          <img src="~assets/send.svg" />
+        </span>
+      </div>
+
+      <div class="post_data">
+        <div class="post_numbers">
+          <span> Loved by </span>
+          <span> Example Name, Example Name 2, Examp... </span>
+        </div>
+        <div class="post_comments">
+          <h2>Comments | Leads</h2>
+          <!--
+          <div>
+            <p v-for="comment in pets.leads" :key="comment">
+              {{ comment }}
+            </p>
+          </div>
+          -->
+          <input class="comment_input" placeholder="Type your comment or lead here."> <input/>  
+        </div>
+      </div>
     </div>
 
   </div>
 </template>
 
-<style>
+<style scoped>
+.index_background {
+  background-color: var(--clr-offwhite);
+  height: fit-content;
+}
+
+.post_style {
+  width: 96%;
+  max-width: 900px;
+  margin: .4rem 0 .8rem 0;
+  background-color: #ffffff;
+  border-radius: 14px;
+  border: 2px solid rgba(138, 138, 138, 0.5);
+  padding: 0;
+}
+
+.index_dashboard {
+  text-align: center;
+}
+
 .individual_post {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 1200px;
-  padding: 1rem;
-  border-left: 2px solid rgba(0, 0, 0, 0.5);
-  border-right: 2px solid rgba(0, 0, 0, 0.5);
-  border-top: 2px solid rgba(138, 138, 138, 0.5);
-  border-bottom: 2px solid rgba(138, 138, 138, 0.5);
-}
-.individual_post:hover {
-  background-color: #f5f5f5;
-}
-
-.pet_top_wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 
 .pet_data {
@@ -82,38 +96,58 @@
   flex-direction: row;
   align-items: center;
   width: 100%;
+  padding: 0 1rem;
 }
 .profile_pic {
   width: 80px;
   height: 80px;
 }
-.pet_data_area {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
 
 .pet_data_textarea {
   padding: 0 2rem;
 }
-.pet_data_comments {
 
-}
-
-.pet_picture_area {
-  width: 30%;
-  height: 100%;
-}
-.pet_picture {
+.picture_area {
   width: 100%;
-  height: 100%;
-  border-radius: 10px;
+  height: fit-content;
 }
 
-.pet_post_numbers {
-
+.post_buttons {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.post_buttons > span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.post_buttons > span > img {
+    height: 30px;
+    width: fit-content;
+}
+.post_buttons > span > img:not(:last-child) {
+    padding: 0 2rem 0 0;
 }
 
+.post_data {
+  padding: 0 1rem;
+}
+.post_numbers {
+  padding: 0.5rem 0;
+}
+.post_comments {
+  padding: 0.5rem 0;
+}
+.comment_input {
+  width: 100%;
+  margin-top: 1rem;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  padding: 0 10px;
+}
 </style>
 
 <script>

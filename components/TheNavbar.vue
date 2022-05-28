@@ -1,8 +1,8 @@
 <template>
-  <nav class="w-100 shadow-lg text-gray-700 text-lg shadow bg-gray-50">
+  <nav class="w-100 shadow-lg text-gray-700 text-lg shadow">
     <ul class="flex justify-between mx-10 p-4 items-center">
       <li class="hover:opacity-80">
-        <NuxtLink to="landing.vue">
+        <NuxtLink to="/auth/landing">
           <img class="w-16" src="~assets/logo.png" />
         </NuxtLink>
       </li>

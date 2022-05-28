@@ -1,6 +1,6 @@
 <template>
   <div class="footer_image">
-    <footer class="text-gray-200 w-100 bg-gray-900 p-14 mt-14">
+    <footer class="text-gray-200 w-100 bg-gray-900 p-14">
       <div class="container-split-50 mb-6">
         <div class="accented-text w-1/2 text-4xl max-w-prose">
           Help Reunite a Family Today
