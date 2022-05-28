@@ -51,14 +51,14 @@
         </div>
         <div class="post_comments">
           <h2>Comments | Leads</h2>
-          <!--
+   
           <div>
             <p v-for="comment in pets.leads" :key="comment">
               {{ comment }}
             </p>
           </div>
-          -->
-          <input class="comment_input" placeholder="Type your comment or lead here."> <input/>  
+ 
+          <input class="comment_input" placeholder="Type your comment here."> <input/>  
         </div>
       </div>
     </div>
@@ -144,7 +144,7 @@
 .comment_input {
   width: 100%;
   margin-top: 1rem;
-  border: 2px solid #000000;
+  border: 2px solid rgba(138, 138, 138, 0.5);
   border-radius: 8px;
   padding: 0 10px;
 }
