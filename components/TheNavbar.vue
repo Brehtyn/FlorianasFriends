@@ -6,7 +6,7 @@
           <img class="w-16" src="~assets/logo.png" />
         </NuxtLink>
       </li>
-      <ul class="flex row w-full justify-evenly p-2">
+      <ul class="flex row w-full justify-evenly p-2" id="mobile_drop_menu">
         <li class="hover:opacity-80">
           <NuxtLink to="/auth/landing"> Home </NuxtLink>
         </li>
@@ -52,4 +52,5 @@ export default {
 .left-border {
   border-left: 1px solid var(--clr-whiteborder);
 }
+
 </style>
