@@ -1,6 +1,6 @@
 <template>
   <div class="index_background align-content-center">
-    <div class="index_dashboard post_style">
+    <div class="align-text-center post_style">
       <h1>Logged In Dashboard</h1>
       <p>You are now logged in as {{ $nuxt.$fire.auth.currentUser.email }}</p>
     </div>
@@ -11,7 +11,7 @@
           <img src="~assets/profile.svg" />
         </div>
 
-        <div class="pet_data_textarea">
+        <div class="px-8">
           <div>
             <h2>
               <span> {{ pets.pet_name }} </span>
@@ -34,35 +34,45 @@
 
       <div class="post_buttons">
         <span>
-          <img src="~assets/heart.svg" />
-          <img src="~assets/chat.svg" />
+          <button>
+            <img src="~assets/heart.svg" />
+          </button>
+          <button>
+            <img src="~assets/chat.svg" />
+          </button>
         </span>
         <span>
-          <img src="~assets/info.svg" />
-          <img src="~assets/save.svg" />
-          <img src="~assets/send.svg" />
+          <button>
+            <img src="~assets/info.svg" />
+          </button>
+          <button>
+            <img src="~assets/save.svg" />
+          </button>
+          <button>
+            <img src="~assets/send.svg" />
+          </button>
         </span>
       </div>
 
-      <div class="post_data">
-        <div class="post_numbers">
+      <div class="px-4">
+        <div class="p-2">
           <span> Loved by </span>
           <span> Example Name, Example Name 2, Examp... </span>
         </div>
-        <div class="post_comments">
+        <div class="p-2">
           <h2>Comments | Leads</h2>
-   
+
           <div>
             <p v-for="comment in pets.leads" :key="comment">
               {{ comment }}
             </p>
           </div>
- 
-          <input class="comment_input" placeholder="Type your comment here."> <input/>  
+
+          <input class="comment_input" placeholder="Type your comment here." />
+          <input />
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -75,15 +85,11 @@
 .post_style {
   width: 96%;
   max-width: 900px;
-  margin: .4rem 0 .8rem 0;
+  margin: 0.4rem 0 0.8rem 0;
   background-color: #ffffff;
   border-radius: 14px;
   border: 2px solid rgba(138, 138, 138, 0.5);
   padding: 0;
-}
-
-.index_dashboard {
-  text-align: center;
 }
 
 .individual_post {
@@ -103,10 +109,6 @@
   height: 80px;
 }
 
-.pet_data_textarea {
-  padding: 0 2rem;
-}
-
 .picture_area {
   width: 100%;
   height: fit-content;
@@ -124,23 +126,15 @@
   flex-direction: row;
   align-items: center;
 }
-.post_buttons > span > img {
-    height: 30px;
-    width: fit-content;
+.post_buttons > span > button > img {
+  height: 30px;
+  width: fit-content;
+  margin: 0 1rem 0 0;
 }
-.post_buttons > span > img:not(:last-child) {
-    padding: 0 2rem 0 0;
+.post_buttons > span > button:hover {
+  opacity: .7;
 }
 
-.post_data {
-  padding: 0 1rem;
-}
-.post_numbers {
-  padding: 0.5rem 0;
-}
-.post_comments {
-  padding: 0.5rem 0;
-}
 .comment_input {
   width: 100%;
   margin-top: 1rem;
