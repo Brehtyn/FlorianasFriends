@@ -1,0 +1,52 @@
+@font-face {
+    font-family: FredokaOne;
+    src: url(~/assets/fonts/FredokaOne-Regular.otf);
+}
+:root {
+    --ff-main: 'DM Sans', sans-serif;
+    --ff-accent: 'FredokaOne', cursive;
+
+    --clr-whiteborder: #eaeaea;
+    --clr-whitebg: #f9fafb;
+    --clr-offwhite: hsl(0, 0%, 94%);
+
+    --clr-accent: #fcd34d;
+}
+
+.accented-text {
+    font-family: var(--ff-accent);
+}
+
+.align-content-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+.align-text-center {
+    text-align: center;
+} 
+.align-text-right {
+    text-align: right;
+}
+.align-text-left {
+    text-align: left;
+}
+
+.container-split-50 {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes left-slide-in {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
