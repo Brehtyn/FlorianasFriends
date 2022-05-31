@@ -1,5 +1,10 @@
 <template>
   <div class="index_background align-content-center">
+
+    <postSend v-show="showpostSend" @close-postSend="showpostSend = false" />
+    <postInfo v-show="showpostInfo" @close-postInfo="showpostInfo = false" />
+    <postComments v-show="showpostComments" @close-postComments="showpostComments = false" />
+
     <div class="align-text-center post_style">
       <h1>Logged In Dashboard</h1>
       <p>You are now logged in as {{ $nuxt.$fire.auth.currentUser.email }}</p>
@@ -37,18 +42,18 @@
           <button>
             <img src="~assets/heart.svg" />
           </button>
-          <button>
+          <button @click="showpostComments = true">
             <img src="~assets/chat.svg" />
           </button>
         </span>
         <span>
-          <button>
+          <button @click="showpostInfo = true">
             <img src="~assets/info.svg" />
           </button>
           <button>
             <img src="~assets/save.svg" />
           </button>
-          <button>
+          <button @click="showpostSend = true">
             <img src="~assets/send.svg" />
           </button>
         </span>
@@ -145,9 +150,21 @@
 </style>
 
 <script>
+import postSend from "~/components/postSend.vue";
+import postInfo from "~/components/postInfo.vue";
+import postComments from "~/components/postComments.vue";
+
 export default {
+  components: {
+    postSend,
+    postInfo,
+    postComments,
+  },
   data() {
     return {
+      showpostSend: false,
+      showpostInfo: false,
+      showpostComments: false,
       pets: null,
     };
   },

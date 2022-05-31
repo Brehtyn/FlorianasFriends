@@ -1,5 +1,5 @@
 <template>
-  <div @click="$emit('close-Profilebar')" class="profilebar_bg">
+  <div @click="$emit('close-Profilebar')" class="bg">
     <div class="profilebar_modal">
       <button @click="$emit('close-Profilebar')" class="flex row space-around p-6 hover:opacity-80">
         <img class="-mt-2" src="~assets/right_arrow.svg" />
@@ -30,14 +30,14 @@ export default {};
 </script>
 
 <style scoped>
-.profilebar_bg {
+.bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 98;
+  background-color: rgba(0, 0, 0, 0.67);
+  z-index: 10;
 }
 .profilebar_modal {
   position: fixed;
@@ -47,7 +47,7 @@ export default {};
   min-width: 300px;
   max-width: 500px;
   height: 100%;
-  z-index: 99;
+  z-index: 50;
   background-color: var(--clr-whitebg);
   border-left: 2px solid var(--clr-whiteborder);
   filter: drop-shadow(0 -6mm 4mm rgba(0, 0, 0, 0.5));
