@@ -1,5 +1,5 @@
 <template>
-  <div class="postLikesChild">
+  <div class="PostLikesChild">
     <img src="~assets/profile.svg" />
     <h3>likes.user_name</h3>
   </div>
@@ -10,18 +10,18 @@ export default {};
 </script>
 
 <style scoped>
-.postLikesChild {
+.PostLikesChild {
   width: 100%;
   display: flex;
   align-items: center;
   padding: 1rem;
 }
-.postLikesChild > img {
+.PostLikesChild > img {
   width: 60px;
   height: auto;
   margin-left: 20px;
 }
-.postLikesChild > h3 {
+.PostLikesChild > h3 {
   padding-left: 20px;
 }
 </style>

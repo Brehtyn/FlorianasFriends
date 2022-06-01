@@ -27,17 +27,20 @@
           class="shadow appearance-none border rounded w-full py-3 px-6 text-grey-darker m-20 input"
           to="/auth/signup">Signup</NuxtLink>
       </nav>
+
+    <br/>
+
+    <postBase />
+    <postBase />
+
     </div>
-
-    <MainFeed />
-
   </div>
 </template>
 
 <script>
-import MainFeed from '../../components/MainFeed.vue';
+import postBase from '~/components/postBase.vue';
 
-export default {components: {MainFeed}}
+export default {components: {postBase}}
 </script>
 
 <style scoped>

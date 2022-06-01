@@ -1,24 +1,22 @@
 <template>
   <div>
-    <div @click="$emit('close-postLikes')" class="bg"></div>
-    <div class="postLikes_modal">
+    <div @click="$emit('close-PostLikes')" class="bg"></div>
+    <div class="PostLikes_modal">
       <div class="like_title">
         <h3><b> Liked By </b></h3>
-        <button @click="$emit('close-postLikes')">Close</button>
+        <button @click="$emit('close-PostLikes')">Close</button>
       </div>
       <div class="like_feed">
-        <postLikesChild />
-        <postLikesChild />
-        <postLikesChild />
-        <postLikesChild />
-        <postLikesChild />
-        <postLikesChild />
-        <postLikesChild />
-        <postLikesChild />
-        <postLikesChild />
-        <postLikesChild />
-        
-
+        <PostLikesChild />
+          <PostLikesChild />
+            <PostLikesChild />
+              <PostLikesChild />
+                <PostLikesChild />
+                  <PostLikesChild />
+                    <PostLikesChild />
+                      <PostLikesChild />
+                        <PostLikesChild />
+                         <PostLikesChild />
       </div>
     </div>
   </div>
@@ -38,7 +36,7 @@ export default {};
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.67);
 }
-.postLikes_modal {
+.PostLikes_modal {
   position: fixed;
   top: 20%;
   left: 50%;

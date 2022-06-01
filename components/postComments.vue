@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="postComments_modal">
-      <postCommentsChild />
-       <postCommentsChild />
-        <postCommentsChild />
-         <postCommentsChild />
-          <postCommentsChild />
+    <div class="PostComments_modal">
+      <PostCommentsChild />
+       <PostCommentsChild />
+        <PostCommentsChild />
+         <PostCommentsChild />
+          <PostCommentsChild />
     </div>
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {};
 </script>
 
 <style scoped>
-.postComments_modal {
+.PostComments_modal {
   position: relative;
   width: 100%;
   max-width: 900px;

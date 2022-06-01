@@ -1,5 +1,5 @@
 <template>
-  <div class="postCommentsChild">
+  <div class="PostCommentsChild">
     Test Comment! <br>
   </div>
 </template>
@@ -9,7 +9,7 @@ export default {};
 </script>
 
 <style scoped>
-.postCommentsChild {
+.PostCommentsChild {
   width: 100%;
   padding: .5rem 0;
 }

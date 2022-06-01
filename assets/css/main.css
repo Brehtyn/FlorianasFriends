@@ -55,6 +55,15 @@ b {
     height: 100%;
 }
 
+.post_style {
+    margin: 0.4rem 0 0.8rem 0;
+    background-color: #ffffff;
+    border-radius: 14px;
+    border: 2px solid rgba(138, 138, 138, 0.5);
+    padding: 0;
+    filter: drop-shadow(0 0.5mm 0.5mm rgba(0, 0, 0, 0.5));
+  }
+
 @keyframes left-slide-in {
     from {
         transform: translateX(100%);

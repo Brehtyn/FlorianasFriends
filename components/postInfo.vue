@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div @click="$emit('close-postInfo')" class="bg"></div>
-    <div class="postInfo_modal">
+    <div @click="$emit('close-PostInfo')" class="bg"></div>
+    <div class="PostInfo_modal">
       Area for detailed dog info.
     </div>
   </div>
@@ -21,7 +21,7 @@ export default {};
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.67);
 }
-.postInfo_modal {
+.PostInfo_modal {
   position: fixed;
   top: 20%;
   left: 50%;

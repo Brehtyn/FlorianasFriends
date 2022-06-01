@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div @click="$emit('close-postSend')" class="bg"></div>
-    <div class="postSend_modal">
-      <ul class="postSend_menu">
+    <div @click="$emit('close-PostSend')" class="bg"></div>
+    <div class="PostSend_modal">
+      <ul class="PostSend_menu">
         <li>
           <img src="~assets/simple_twitter.svg" />
           <a href="#"> Tweet It </a>
@@ -47,7 +47,7 @@ export default {};
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.67);
 }
-.postSend_modal {
+.PostSend_modal {
   position: fixed;
   top: 20%;
   left: 50%;
@@ -59,7 +59,7 @@ export default {};
   z-index: 50;
   filter: drop-shadow(0 .5mm .5mm rgba(0, 0, 0, 0.5));
 }
-.postSend_menu {
+.PostSend_menu {
   list-style: none;
   padding: 0 1rem;
   margin: 0;
@@ -67,15 +67,15 @@ export default {};
   flex-direction: column;
   align-items: flex-start;
 }
-.postSend_menu > li > img {
+.PostSend_menu > li > img {
   width: 1.5rem;
   height: 1.5rem;
   margin-right: 1rem;
   margin-top: 1px;
   float: left;
 }
-.postSend_menu > li:after,
-.postSend_menu > li:first-of-type:before {
+.PostSend_menu > li:after,
+.PostSend_menu > li:first-of-type:before {
   content: "";
   display: block;
   width: 100%;
