@@ -13,10 +13,6 @@
       v-show="showpostLikes"
       @close-postLikes="showpostLikes = false"
     />
-    <postComments
-      v-show="showpostComments"
-      @close-postComments="showpostComments = false"
-    />
 
     <div class="postBase_modal post_style shadow shadow-lg">
       <div class="pet_data">
@@ -52,7 +48,7 @@
           <button>
             <img src="~assets/heart.svg" />
           </button>
-          <button @click="showpostComments = true">
+          <button @click="showpostComments = true" @close-postComments="showpostComments == true">
             <img src="~assets/chat.svg" />
           </button>
         </span>
@@ -79,12 +75,13 @@
 
         <div class="p-2">
           <button class="general_button" @click="showpostComments = true">
-            <h2> <b> Comments | Leads </b> </h2>
+            <h2><b> Comments | Leads </b></h2>
 
             <div>
               <p v-for="comment in pets.leads" :key="comment">
                 {{ comment }}
               </p>
+              <postComments v-show="showpostComments" @close-postComments="showpostComments = false" />
             </div>
           </button>
           <input class="comment_input" placeholder="Type your comment here." />
@@ -167,14 +164,6 @@
   border-radius: 8px;
   padding: 0 10px;
   margin-bottom: 10px;
-}
-.general_button {
-  padding: unset;
-  border: unset;
-  background-color: unset;
-  width: 100%;
-  height: 100%;
-  text-align: left;
 }
 
 /* Individual Post Component End, dont forget script data below! */

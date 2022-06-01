@@ -7,14 +7,18 @@
         <button @click="$emit('close-postLikes')">Close</button>
       </div>
       <div class="like_feed">
-        <postLikesItem />
-        <postLikesItem />
-        <postLikesItem />
-        <postLikesItem />
-        <postLikesItem />
-        <postLikesItem />
-        <postLikesItem />
-        <postLikesItem />
+        <postLikesChild />
+        <postLikesChild />
+        <postLikesChild />
+        <postLikesChild />
+        <postLikesChild />
+        <postLikesChild />
+        <postLikesChild />
+        <postLikesChild />
+        <postLikesChild />
+        <postLikesChild />
+        
+
       </div>
     </div>
   </div>
@@ -40,7 +44,7 @@ export default {};
   left: 50%;
   width: 100%;
   max-width: 700px;
-  height: 89%;
+  height: fit-content;
   max-height: 600px;
   transform: translate(-50%, -10%);
   background-color: var(--clr-whitebg);

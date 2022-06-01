@@ -1,8 +1,11 @@
 <template>
   <div>
-    <div @click="$emit('close-postComments')" class="bg"></div>
     <div class="postComments_modal">
-      Area for post's comments.
+      <postCommentsChild />
+       <postCommentsChild />
+        <postCommentsChild />
+         <postCommentsChild />
+          <postCommentsChild />
     </div>
   </div>
 </template>
@@ -12,25 +15,14 @@ export default {};
 </script>
 
 <style scoped>
-.bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  background-color: rgba(0, 0, 0, 0.67);
-}
 .postComments_modal {
-  position: fixed;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -10%);
-  background-color: var(--clr-whitebg);
-  border-radius: 6px;
-  border: 2px solid var(--clr-whiteborder);
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: fit-content;
+  max-height: 800px;
   padding: 0;
-  z-index: 50;
-  filter: drop-shadow(0 .5mm .5mm rgba(0, 0, 0, 0.5));
+  z-index: 1;
+  overflow-y: scroll;
 }
 </style>

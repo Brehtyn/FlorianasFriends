@@ -1,9 +1,9 @@
 <template>
   <nav class="w-100 shadow-lg text-gray-700 text-lg shadow">
-    <ul class="flex justify-between mx-10 p-4 items-center">
+    <ul class="flex justify-between mx-10 p-2 items-center">
       <li class="hover:opacity-80">
         <NuxtLink to="/auth/landing">
-          <img class="w-16" src="~assets/logo.png" />
+          <img class="w-14" src="~assets/logo.png" />
         </NuxtLink>
       </li>
       <ul class="flex row w-full justify-evenly p-2" id="mobile_drop_menu">
