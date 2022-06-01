@@ -1,14 +1,16 @@
 <template>
   <div class="index_background align-content-center">
 
-    <postSend v-show="showpostSend" @close-postSend="showpostSend = false" />
-    <postInfo v-show="showpostInfo" @close-postInfo="showpostInfo = false" />
-    <postComments v-show="showpostComments" @close-postComments="showpostComments = false" />
-
     <div class="align-text-center post_style">
       <h1>Logged In Dashboard</h1>
       <p>You are now logged in as {{ $nuxt.$fire.auth.currentUser.email }}</p>
     </div>
+
+    <!-- Individual Post Component Start -->
+
+    <postSend v-show="showpostSend" @close-postSend="showpostSend = false" />
+    <postInfo v-show="showpostInfo" @close-postInfo="showpostInfo = false" />
+    <postComments v-show="showpostComments" @close-postComments="showpostComments = false" />
 
     <div class="individual_post post_style shadow shadow-lg">
       <div class="pet_data">
@@ -78,6 +80,10 @@
         </div>
       </div>
     </div>
+
+    <!-- Individual Post End, dont forget the css below! -->
+
+
   </div>
 </template>
 
@@ -86,6 +92,8 @@
   background-color: var(--clr-offwhite);
   height: fit-content;
 }
+
+/*Needed for index but take a copy of this for Individual Post Component*/
 
 .post_style {
   width: 96%;
@@ -96,6 +104,8 @@
   border: 2px solid rgba(138, 138, 138, 0.5);
   padding: 0;
 }
+
+/* Individual Post Component Start, dont forget script data below! */
 
 .individual_post {
   display: flex;
@@ -147,24 +157,27 @@
   border-radius: 8px;
   padding: 0 10px;
 }
+
+/* Individual Post Component End, dont forget script data below! */
+
 </style>
 
 <script>
-import postSend from "~/components/postSend.vue";
-import postInfo from "~/components/postInfo.vue";
-import postComments from "~/components/postComments.vue";
+import postSend from "~/components/postSend.vue"; // Individual Post Component
+import postInfo from "~/components/postInfo.vue"; // Individual Post Component
+import postComments from "~/components/postComments.vue"; // Individual Post Component
 
 export default {
-  components: {
-    postSend,
-    postInfo,
-    postComments,
+  components: { 
+    postSend, // Individual Post Component
+    postInfo, // Individual Post Component
+    postComments, // Individual Post Component
   },
   data() {
     return {
-      showpostSend: false,
-      showpostInfo: false,
-      showpostComments: false,
+      showpostSend: false, // Individual Post Component
+      showpostInfo: false, // Individual Post Component
+      showpostComments: false, // Individual Post Component
       pets: null,
     };
   },
