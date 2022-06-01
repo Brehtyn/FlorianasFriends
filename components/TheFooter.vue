@@ -65,9 +65,9 @@
         <div class="w-1/2">© Copyright 2022 by Floriana'sFriends.com</div>
         <nav class="w-1/2 align-text-right">
           <ul class="social_media_links">
-            <li><a href="#"> Facebook </a></li>
-            <li><a href="#"> Twitter </a></li>
-            <li><a href="#"> Instagram </a></li>
+            <li><a href="https://www.facebook.com/LostPetsofAutoAccidents"> <img src="~assets/simple_facebook.svg" /> </a></li>
+            <li><a href="#"> <img src="~assets/simple_instagram.svg" /> </a></li>
+            <li><a href="#"> <img src="~assets/simple_twitter.svg" /></a></li>
           </ul>
         </nav>
       </div>
@@ -102,6 +102,12 @@ footer {
   justify-content: flex-end;
   align-items: center;
 }
+  .social_media_links > li > a > img {
+    height: 1.5rem;
+    width: 1.5rem;
+    filter: invert(1);
+    margin: 0 1rem;
+  }
 
 @media screen and (max-width: 620px) {
   #footer_section {
@@ -124,6 +130,7 @@ footer {
     margin-top: 10px;
     justify-content: center;
   }
+
   .container-split-50 {
     flex-direction: column;
     justify-content: center;
