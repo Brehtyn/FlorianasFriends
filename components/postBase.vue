@@ -1,6 +1,6 @@
 <template>
-  <div> 
-      <PostSend v-show="showPostSend" @close-PostSend="showPostSend = false" />
+  <div>
+    <PostSend v-show="showPostSend" @close-PostSend="showPostSend = false" />
     <PostInfo v-show="showPostInfo" @close-PostInfo="showPostInfo = false" />
     <PostLikes
       v-show="showPostLikes"
@@ -38,8 +38,11 @@
       </button>
       <div class="post_buttons">
         <span>
-          <button>
+          <button @click="liked = true" v-if="!liked">
             <img src="~assets/heart.svg" />
+          </button>
+          <button @click="liked = false" v-if="liked">
+            <img src="~assets/heart_filled.svg" />
           </button>
           <button @click="showPostComments = true">
             <img src="~assets/chat.svg" />
@@ -49,8 +52,11 @@
           <button @click="showPostInfo = true">
             <img src="~assets/info.svg" />
           </button>
-          <button>
+          <button @click="saved = true" v-if="!saved">
             <img src="~assets/save.svg" />
+          </button>
+          <button @click="saved = false" v-if="saved">
+            <img src="~assets/save_filled.svg" />
           </button>
           <button @click="showPostSend = true">
             <img src="~assets/send.svg" />
@@ -71,9 +77,11 @@
             <h2><b> Comments | Leads </b></h2>
 
             <div>
-              <p> Comments go here!
-              </p>
-              <PostComments v-show="showPostComments" @close-PostComments="showPostComments = false" />
+              <p>Comments go here!</p>
+              <PostComments
+                v-show="showPostComments"
+                @close-PostComments="showPostComments = false"
+              />
             </div>
           </button>
           <input class="comment_input" placeholder="Type your comment here." />
@@ -84,31 +92,32 @@
 </template>
 
 <script>
-import PostSend from "~/components/PostSend.vue"; 
-import PostInfo from "~/components/PostInfo.vue"; 
-import PostLikes from "~/components/PostLikes.vue"; 
-import PostComments from "~/components/PostComments.vue"; 
+import PostSend from "~/components/PostSend.vue";
+import PostInfo from "~/components/PostInfo.vue";
+import PostLikes from "~/components/PostLikes.vue";
+import PostComments from "~/components/PostComments.vue";
 
 export default {
   components: {
-    PostSend, 
-    PostInfo, 
-    PostLikes, 
-    PostComments, 
+    PostSend,
+    PostInfo,
+    PostLikes,
+    PostComments,
   },
-    data() {
+  data() {
     return {
-      showPostSend: false, 
-      showPostInfo: false, 
-      showPostLikes: false, 
-      showPostComments: false, 
+      liked: false,
+      saved: false,
+      showPostSend: false,
+      showPostInfo: false,
+      showPostLikes: false,
+      showPostComments: false,
     };
   },
-}
+};
 </script>
 
 <style scoped>
-
 .post_style {
   width: 100%;
   max-width: 900px;
@@ -165,5 +174,4 @@ export default {
   padding: 0 10px;
   margin-bottom: 10px;
 }
-
 </style>

@@ -30,17 +30,17 @@
 
     <br/>
 
-    <postBase />
-    <postBase />
+    <PostBase />
+    <PostBase />
 
     </div>
   </div>
 </template>
 
 <script>
-import postBase from '~/components/postBase.vue';
+import PostBase from '~/components/PostBase.vue';
 
-export default {components: {postBase}}
+export default {components: {PostBase}}
 </script>
 
 <style scoped>
