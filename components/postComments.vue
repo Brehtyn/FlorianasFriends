@@ -26,10 +26,11 @@ export default {};
   top: 20%;
   left: 50%;
   transform: translate(-50%, -10%);
-  background-color: #ffffff;
+  background-color: var(--clr-whitebg);
   border-radius: 6px;
-  border: 2px solid rgba(138, 138, 138, 0.5);
+  border: 2px solid var(--clr-whiteborder);
   padding: 0;
   z-index: 50;
+  filter: drop-shadow(0 .5mm .5mm rgba(0, 0, 0, 0.5));
 }
 </style>

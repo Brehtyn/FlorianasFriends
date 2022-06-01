@@ -13,6 +13,10 @@
     --clr-accent: #fcd34d;
 }
 
+b {
+    font-weight: 600;
+}
+
 .accented-text {
     font-family: var(--ff-accent);
 }
