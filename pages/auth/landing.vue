@@ -29,11 +29,15 @@
       </nav>
     </div>
 
+    <MainFeed />
+
   </div>
 </template>
 
 <script>
-export default {};
+import MainFeed from '../../components/MainFeed.vue';
+
+export default {components: {MainFeed}}
 </script>
 
 <style scoped>
