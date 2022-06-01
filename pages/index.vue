@@ -1,6 +1,5 @@
 <template>
   <div class="index_background align-content-center">
-
     <div class="align-text-center post_style">
       <h1>Logged In Dashboard</h1>
       <p>You are now logged in as {{ $nuxt.$fire.auth.currentUser.email }}</p>
@@ -10,9 +9,16 @@
 
     <postSend v-show="showpostSend" @close-postSend="showpostSend = false" />
     <postInfo v-show="showpostInfo" @close-postInfo="showpostInfo = false" />
-    <postComments v-show="showpostComments" @close-postComments="showpostComments = false" />
+    <postLikes
+      v-show="showpostLikes"
+      @close-postLikes="showpostLikes = false"
+    />
+    <postComments
+      v-show="showpostComments"
+      @close-postComments="showpostComments = false"
+    />
 
-    <div class="individual_post post_style shadow shadow-lg">
+    <div class="postBase_modal post_style shadow shadow-lg">
       <div class="pet_data">
         <div class="profile_pic">
           <img src="~assets/profile.svg" />
@@ -21,9 +27,11 @@
         <div class="px-8">
           <div>
             <h2>
-              <span> {{ pets.pet_name }} </span>
-              <span> from </span>
-              <span> {{ pets.user_name }} </span>
+              <b>
+                <span> {{ pets.pet_name }} </span>
+                <span> from </span>
+                <span> {{ pets.user_name }} </span>
+              </b>
             </h2>
           </div>
           <div>
@@ -34,11 +42,11 @@
           </div>
         </div>
       </div>
-
-      <div class="picture_area">
-        <img src="~/assets/footer_backdrop.jpg" />
-      </div>
-
+      <button @click="showpostInfo = true">
+        <div class="picture_area">
+          <img src="~/assets/footer_backdrop.jpg" />
+        </div>
+      </button>
       <div class="post_buttons">
         <span>
           <button>
@@ -63,27 +71,28 @@
 
       <div class="px-4">
         <div class="p-2">
-          <span> Loved by </span>
-          <span> Example Name, Example Name 2, Examp... </span>
+          <button class="general_button" @click="showpostLikes = true">
+            <span> <b> Loved by </b> </span>
+            <span> Example Name, Example Name 2, Examp... </span>
+          </button>
         </div>
+
         <div class="p-2">
-          <h2>Comments | Leads</h2>
+          <button class="general_button" @click="showpostComments = true">
+            <h2> <b> Comments | Leads </b> </h2>
 
-          <div>
-            <p v-for="comment in pets.leads" :key="comment">
-              {{ comment }}
-            </p>
-          </div>
-
+            <div>
+              <p v-for="comment in pets.leads" :key="comment">
+                {{ comment }}
+              </p>
+            </div>
+          </button>
           <input class="comment_input" placeholder="Type your comment here." />
-          <input />
         </div>
       </div>
     </div>
 
     <!-- Individual Post End, dont forget the css below! -->
-
-
   </div>
 </template>
 
@@ -103,11 +112,12 @@
   border-radius: 14px;
   border: 2px solid rgba(138, 138, 138, 0.5);
   padding: 0;
+  filter: drop-shadow(0 0.5mm 0.5mm rgba(0, 0, 0, 0.5));
 }
 
 /* Individual Post Component Start, dont forget script data below! */
 
-.individual_post {
+.postBase_modal {
   display: flex;
   flex-direction: column;
 }
@@ -117,7 +127,7 @@
   flex-direction: row;
   align-items: center;
   width: 100%;
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
 .profile_pic {
   width: 80px;
@@ -147,7 +157,7 @@
   margin: 0 1rem 0 0;
 }
 .post_buttons > span > button:hover {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .comment_input {
@@ -156,27 +166,38 @@
   border: 2px solid rgba(138, 138, 138, 0.5);
   border-radius: 8px;
   padding: 0 10px;
+  margin-bottom: 10px;
+}
+.general_button {
+  padding: unset;
+  border: unset;
+  background-color: unset;
+  width: 100%;
+  height: 100%;
+  text-align: left;
 }
 
 /* Individual Post Component End, dont forget script data below! */
-
 </style>
 
 <script>
 import postSend from "~/components/postSend.vue"; // Individual Post Component
 import postInfo from "~/components/postInfo.vue"; // Individual Post Component
+import postLikes from "~/components/postLikes.vue"; // Individual Post Component
 import postComments from "~/components/postComments.vue"; // Individual Post Component
 
 export default {
-  components: { 
+  components: {
     postSend, // Individual Post Component
     postInfo, // Individual Post Component
+    postLikes, // Individual Post Component
     postComments, // Individual Post Component
   },
   data() {
     return {
       showpostSend: false, // Individual Post Component
       showpostInfo: false, // Individual Post Component
+      showpostLikes: false, // Individual Post Component
       showpostComments: false, // Individual Post Component
       pets: null,
     };
