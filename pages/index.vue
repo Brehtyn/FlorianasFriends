@@ -18,8 +18,9 @@
 }
 
 .post_style {
-  width: 96%;
+  width: 100%;
   max-width: 900px;
+  margin: .5rem auto;
 }
 </style>
 

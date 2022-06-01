@@ -121,6 +121,7 @@ export default {
 .post_style {
   width: 100%;
   max-width: 900px;
+  margin: .5rem auto;
 }
 
 .PostBase_modal {

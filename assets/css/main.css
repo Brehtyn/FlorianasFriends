@@ -11,6 +11,7 @@
     --clr-offwhite: hsl(0, 0%, 94%);
 
     --clr-accent: #fcd34d;
+    --clr-heartred: #b53736;
 }
 
 b {
@@ -61,7 +62,7 @@ b {
     border-radius: 14px;
     border: 2px solid rgba(138, 138, 138, 0.5);
     padding: 0;
-    filter: drop-shadow(0 0.5mm 0.5mm rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 0.5mm 0.5mm rgba(0, 0, 0, 0.2));
   }
 
 @keyframes left-slide-in {
