@@ -30,6 +30,7 @@
 
     <br/>
 
+    <!-- This is where we need the for loop, send in the data to PostBase and then it should iterate with the new data every time -->
     <PostBase />
     <PostBase />
 
