@@ -1,13 +1,13 @@
 <template>
   <div>
-    <PostSend v-show="showPostSend" @close-PostSend="showPostSend = false" />
+    
     <PostInfo v-show="showPostInfo" @close-PostInfo="showPostInfo = false" />
-    <PostLikes
-      v-show="showPostLikes"
-      @close-PostLikes="showPostLikes = false"
-    />
+    <PostLikes v-show="showPostLikes" @close-PostLikes="showPostLikes = false"/>
 
     <div class="PostBase_modal post_style shadow shadow-lg">
+
+      <PostSend v-show="showPostSend" @close-PostSend="showPostSend = false" />
+      
       <div class="pet_data">
         <div class="profile_pic">
           <img src="~assets/profile.svg" />
@@ -31,17 +31,19 @@
           </div>
         </div>
       </div>
+      
       <button @click="showPostInfo = true">
         <div class="picture_area">
           <img src="~/assets/footer_backdrop.jpg" />
         </div>
       </button>
+
       <div class="post_buttons">
         <span>
-          <button @click="liked = true" v-if="!liked">
+          <button @click="liked = true" v-if="!liked" class="transition_animation">
             <img src="~assets/heart.svg" />
           </button>
-          <button @click="liked = false" v-if="liked">
+          <button @click="liked = false" v-if="liked" class="transition_animation">
             <img src="~assets/heart_filled.svg" />
           </button>
           <button @click="showPostComments = true">
@@ -52,10 +54,10 @@
           <button @click="showPostInfo = true">
             <img src="~assets/info.svg" />
           </button>
-          <button @click="saved = true" v-if="!saved">
+          <button @click="saved = true" v-if="!saved" class="transition_animation">
             <img src="~assets/save.svg" />
           </button>
-          <button @click="saved = false" v-if="saved">
+          <button @click="saved = false" v-if="saved" class="transition_animation">
             <img src="~assets/save_filled.svg" />
           </button>
           <button @click="showPostSend = true">
@@ -120,7 +122,7 @@ export default {
 <style scoped>
 .post_style {
   width: 100%;
-  max-width: 900px;
+  max-width: 700px;
   margin: .5rem auto;
 }
 
@@ -175,4 +177,9 @@ export default {
   padding: 0 10px;
   margin-bottom: 10px;
 }
+
+.transition_animation {
+  animation: transition-excite 0.4s ease-out; ;
+}
+
 </style>

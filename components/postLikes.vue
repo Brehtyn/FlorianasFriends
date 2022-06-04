@@ -43,8 +43,8 @@ export default {};
   width: 100%;
   max-width: 700px;
   height: fit-content;
-  max-height: 600px;
-  transform: translate(-50%, -10%);
+  max-height: 80%;
+  transform: translate(-50%, 0);
   background-color: var(--clr-whitebg);
   border-radius: 6px;
   border: 2px solid var(--clr-whiteborder);
@@ -53,6 +53,12 @@ export default {};
   filter: drop-shadow(0 .5mm .5mm rgba(0, 0, 0, 0.5));
   overflow-y: scroll;
 }
+@media screen and (min-width: 700px) {
+  .PostLikes_modal {
+    top:10%;
+  }
+}
+
 .like_title {
   display: flex;
   justify-content: space-between;

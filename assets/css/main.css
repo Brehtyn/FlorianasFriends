@@ -59,8 +59,7 @@ b {
 .post_style {
     margin: 0.4rem 0 0.8rem 0;
     background-color: #ffffff;
-    border-radius: 14px;
-    border: 2px solid rgba(138, 138, 138, 0.5);
+    border-radius: 10px;
     padding: 0;
     filter: drop-shadow(0 0.5mm 0.5mm rgba(0, 0, 0, 0.2));
   }
@@ -71,5 +70,18 @@ b {
     }
     to {
         transform: translateX(0);
+    }
+}
+
+@keyframes transition-excite {
+    from {
+        transform:scale(1);
+    }
+    50% {
+        transform:scale(1.5);
+        margin-left: .5rem;
+    }
+    to {
+        transform:scale(1);
     }
 }

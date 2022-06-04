@@ -16,11 +16,22 @@
   background-color: var(--clr-offwhite);
   height: fit-content;
 }
-
 .post_style {
   width: 100%;
-  max-width: 900px;
+  max-width: 700px;
   margin: .5rem auto;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 1370px) {
+  .post_style {
+    position: absolute;
+    top: 66px;
+    right: calc(370px + 50%);
+    width: calc(23% - 20px);
+    max-width: 600px;
+    text-align: left;
+  }
 }
 </style>
 

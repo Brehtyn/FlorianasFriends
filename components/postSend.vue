@@ -2,6 +2,11 @@
   <div>
     <div @click="$emit('close-PostSend')" class="bg"></div>
     <div class="PostSend_modal">
+
+      <button class="exit_button" @click="$emit('close-PostSend')">
+        <img src="~assets/exit_circled.svg" />
+      </button>
+
       <ul class="PostSend_menu">
         <li>
           <img src="~assets/simple_twitter.svg" />
@@ -46,10 +51,11 @@ export default {};
   height: 100%;
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.67);
+  border-radius: 10px;
 }
 .PostSend_modal {
   position: fixed;
-  top: 20%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -10%);
   background-color: var(--clr-whitebg);
@@ -57,7 +63,7 @@ export default {};
   border: 2px solid var(--clr-whiteborder);
   padding: 0;
   z-index: 50;
-  filter: drop-shadow(0 .5mm .5mm rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 0.5mm 0.5mm rgba(0, 0, 0, 0.5));
 }
 .PostSend_menu {
   list-style: none;
@@ -67,7 +73,18 @@ export default {};
   flex-direction: column;
   align-items: flex-start;
 }
-.PostSend_menu > li > img {
+
+.exit_button {
+  position: fixed;
+  top: .5rem !important;
+  right: -.5rem !important;
+}
+.exit_button:hover {
+    opacity: 0.7;
+}
+
+.PostSend_menu > li > img,
+.exit_button {
   width: 1.5rem;
   height: 1.5rem;
   margin-right: 1rem;
