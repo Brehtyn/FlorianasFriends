@@ -105,7 +105,7 @@
               <img src="~assets/profile.svg" height="16p" width="auto" />
             </div>
             <p><b>Commenter Username</b></p>
-            <p>Example Comments go here!</p>
+            <p>Example Comments go here! This is a really long example comment just for styling purposes</p>
           </div>
 
           <PostComments
@@ -194,6 +194,9 @@ export default {
   height: 30px;
   width: fit-content;
   margin: 0 1rem 0 0;
+}
+.post_buttons > span > button:last-of-type > img {
+  margin: 0;
 }
 .post_buttons > span > button:hover {
   opacity: 0.7;
