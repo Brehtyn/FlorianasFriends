@@ -1,6 +1,12 @@
 <template>
   <div class="PostCommentsChild">
-    Test Comment! <br>
+    <div class="comment_structure">
+      <div>
+        <img src="~assets/profile.svg" height="16p" width="auto" />
+      </div>
+      <p><b> Commenter Username </b></p>
+      <p>Example Comments go here!</p>
+    </div>
   </div>
 </template>
 
@@ -11,6 +17,17 @@ export default {};
 <style scoped>
 .PostCommentsChild {
   width: 100%;
-  padding: .5rem 0;
+  padding: 0 0 0.5rem 0;
+  margin-bottom: 0.5rem;
+}
+.comment_structure > div {
+  width: 35px;
+  height: 35px;
+  float: left;
+  margin: 0.5rem calc(10px + 0.5rem) 0 0.5rem;
+}
+.comment_structure > p {
+  width: 100%;
+  height: fit-content;
 }
 </style>

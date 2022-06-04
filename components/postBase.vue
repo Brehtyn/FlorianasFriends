@@ -1,13 +1,14 @@
 <template>
   <div>
-    
     <PostInfo v-show="showPostInfo" @close-PostInfo="showPostInfo = false" />
-    <PostLikes v-show="showPostLikes" @close-PostLikes="showPostLikes = false"/>
+    <PostLikes
+      v-show="showPostLikes"
+      @close-PostLikes="showPostLikes = false"
+    />
 
     <div class="PostBase_modal post_style shadow shadow-lg">
-
       <PostSend v-show="showPostSend" @close-PostSend="showPostSend = false" />
-      
+
       <div class="pet_data">
         <div class="profile_pic">
           <img src="~assets/profile.svg" />
@@ -31,7 +32,7 @@
           </div>
         </div>
       </div>
-      
+
       <button @click="showPostInfo = true">
         <div class="picture_area">
           <img src="~/assets/footer_backdrop.jpg" />
@@ -40,10 +41,18 @@
 
       <div class="post_buttons">
         <span>
-          <button @click="liked = true" v-if="!liked" class="transition_animation">
+          <button
+            @click="liked = true"
+            v-if="!liked"
+            class="transition_animation"
+          >
             <img src="~assets/heart.svg" />
           </button>
-          <button @click="liked = false" v-if="liked" class="transition_animation">
+          <button
+            @click="liked = false"
+            v-if="liked"
+            class="transition_animation"
+          >
             <img src="~assets/heart_filled.svg" />
           </button>
           <button @click="showPostComments = true">
@@ -54,10 +63,18 @@
           <button @click="showPostInfo = true">
             <img src="~assets/info.svg" />
           </button>
-          <button @click="saved = true" v-if="!saved" class="transition_animation">
+          <button
+            @click="saved = true"
+            v-if="!saved"
+            class="transition_animation"
+          >
             <img src="~assets/save.svg" />
           </button>
-          <button @click="saved = false" v-if="saved" class="transition_animation">
+          <button
+            @click="saved = false"
+            v-if="saved"
+            class="transition_animation"
+          >
             <img src="~assets/save_filled.svg" />
           </button>
           <button @click="showPostSend = true">
@@ -67,25 +84,38 @@
       </div>
 
       <div class="px-4">
-        <div class="p-2">
+        <div class="p-2 pt-0">
           <button class="general_button" @click="showPostLikes = true">
-            <span> <b> Loved by </b> </span>
-            <span> Example Name, Example Name 2, Examp... </span>
+            <span> Loved by </span>
+            <span> <b> Example Name, Example Name 2, Examp... </b> </span>
           </button>
         </div>
 
-        <div class="p-2">
-          <button class="general_button" @click="showPostComments = true">
-            <h2><b> Comments | Leads </b></h2>
-
+        <div class="p-2 pt-0">
+          <div class="comment_structure">
             <div>
-              <p>Comments go here!</p>
-              <PostComments
-                v-show="showPostComments"
-                @close-PostComments="showPostComments = false"
-              />
+              <img src="~assets/profile.svg" height="16p" width="auto" />
             </div>
+            <p><b>Commenter Username</b></p>
+            <p>Example Comments go here!</p>
+          </div>
+
+          <div class="comment_structure">
+            <div>
+              <img src="~assets/profile.svg" height="16p" width="auto" />
+            </div>
+            <p><b>Commenter Username</b></p>
+            <p>Example Comments go here!</p>
+          </div>
+
+          <PostComments
+            v-show="showPostComments"
+            @close-PostComments="showPostComments = false"
+          />
+          <button class="general_button" @click="showPostComments = true">
+            <h2>View all Comments & Leads . . .</h2>
           </button>
+
           <input class="comment_input" placeholder="Type your comment here." />
         </div>
       </div>
@@ -123,7 +153,7 @@ export default {
 .post_style {
   width: 100%;
   max-width: 700px;
-  margin: .5rem auto;
+  margin: 0.5rem auto;
 }
 
 .PostBase_modal {
@@ -168,6 +198,19 @@ export default {
 .post_buttons > span > button:hover {
   opacity: 0.7;
 }
+.comment_structure {
+  padding-bottom: 1rem;
+}
+.comment_structure > div {
+  width: 35px;
+  height: 35px;
+  float: left;
+  margin: 0.5rem calc(10px + 0.5rem) 0 0.5rem;
+}
+.comment_structure > p {
+  width: 100%;
+  height: fit-content;
+}
 
 .comment_input {
   width: 100%;
@@ -179,7 +222,6 @@ export default {
 }
 
 .transition_animation {
-  animation: transition-excite 0.4s ease-out; ;
+  animation: transition-excite 0.4s ease-out;
 }
-
 </style>
