@@ -18,7 +18,7 @@
           <div>
             <h2>
               <b>
-                <span> Tragic Pet </span>
+                <span> {{pet_name}} </span>
                 <span> from </span>
                 <span> Grieving Parent </span>
               </b>
@@ -136,6 +136,7 @@ export default {
     PostLikes,
     PostComments,
   },
+  props: ['pet_name'],
   data() {
     return {
       liked: false,

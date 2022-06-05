@@ -30,9 +30,9 @@
 
     <br/>
 
-    <!-- This is where we need the for loop, send in the data to PostBase and then it should iterate with the new data every time -->
-    <PostBase />
-    <PostBase />
+    <div v-for="pet in pets" :key="pet.id">
+        <PostBase :pet_name="pet.pet_name"/>
+    </div>
 
     </div>
   </div>
@@ -40,8 +40,16 @@
 
 <script>
 import PostBase from '~/components/PostBase.vue';
+import pets from '../../data/petData'
 
-export default {components: {PostBase}}
+export default {
+  components: {PostBase},
+  data() {
+    //this will work for meow but if we have to return an object
+    //eventually then we will have to update how everything renders
+    return pets
+  }
+  }
 </script>
 
 <style scoped>
