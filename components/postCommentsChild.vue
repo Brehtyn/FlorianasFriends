@@ -4,14 +4,16 @@
       <div>
         <img src="~assets/profile.svg" height="16p" width="auto" />
       </div>
-      <p><b> Commenter Username </b></p>
-      <p>Example Comments go here!</p>
+      <p><b> Commenter Username: {{comment.user_id}} </b></p>
+      <p>{{comment.comment}}</p>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["comment"]
+};
 </script>
 
 <style scoped>

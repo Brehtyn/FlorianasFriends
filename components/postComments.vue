@@ -1,17 +1,17 @@
 <template>
   <div>
     <div class="PostComments_modal">
-      <PostCommentsChild />
-       <PostCommentsChild />
-        <PostCommentsChild />
-         <PostCommentsChild />
-          <PostCommentsChild />
+      <div v-for="(comment, index) in comments" :key="`comment-${index}`">
+        <PostCommentsChild :comment="comment"/>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['comments']
+};
 </script>
 
 <style scoped>

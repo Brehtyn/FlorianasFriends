@@ -31,7 +31,7 @@
     <br/>
 
     <div v-for="pet in pets" :key="pet.id">
-        <PostBase :pet_name="pet.pet_name"/>
+        <PostBase :pet="pet"/>
     </div>
 
     </div>

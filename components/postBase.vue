@@ -18,16 +18,16 @@
           <div>
             <h2>
               <b>
-                <span> {{pet_name}} </span>
+                <span> {{pet.pet_name}} </span>
                 <span> from </span>
-                <span> Grieving Parent </span>
+                <span> {{pet.user_name}} </span>
               </b>
             </h2>
           </div>
           <div>
             <h3>
               <span> Lost on </span>
-              <span> This Date </span>
+              <span> {{pet.date_lost}} </span>
             </h3>
           </div>
         </div>
@@ -92,25 +92,12 @@
         </div>
 
         <div class="p-2 pt-0">
-          <div class="comment_structure">
-            <div>
-              <img src="~assets/profile.svg" height="16p" width="auto" />
-            </div>
-            <p><b>Commenter Username</b></p>
-            <p>Example Comments go here!</p>
-          </div>
-
-          <div class="comment_structure">
-            <div>
-              <img src="~assets/profile.svg" height="16p" width="auto" />
-            </div>
-            <p><b>Commenter Username</b></p>
-            <p>Example Comments go here! This is a really long example comment just for styling purposes</p>
-          </div>
-
+          <!-- For loop for comment and users that comment -->
+          <!-- Need to import user data to get name from user id -->
           <PostComments
             v-show="showPostComments"
             @close-PostComments="showPostComments = false"
+            :comments="pet.comments"
           />
           <button class="general_button" @click="showPostComments = true">
             <h2>View all Comments & Leads . . .</h2>
@@ -136,7 +123,7 @@ export default {
     PostLikes,
     PostComments,
   },
-  props: ['pet_name'],
+  props: ['pet'],
   data() {
     return {
       liked: false,
@@ -145,7 +132,7 @@ export default {
       showPostInfo: false,
       showPostLikes: false,
       showPostComments: false,
-    };
+    }
   },
 };
 </script>
