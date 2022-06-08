@@ -30,9 +30,11 @@
 
     <br/>
 
-    <div v-for="pet in pets" :key="pet.id">
-        <PostBase :pet="pet"/>
-    </div>
+      <template v-if="pets">
+        <div v-for="pet in pets.pets" :key="pet.id">
+            <PostBase :pet="pet"/>
+        </div>
+      </template>
 
     </div>
   </div>
@@ -41,14 +43,37 @@
 <script>
 import PostBase from '~/components/PostBase.vue';
 import pets from '../../data/petData'
+import users from '../../data/userData'
+
+    let test = {
+      innerTest: [{
+        id: 3,
+        name: 'test name'
+      }]
+    }
+
 
 export default {
   components: {PostBase},
   data() {
     //this will work for meow but if we have to return an object
     //eventually then we will have to update how everything renders
-    return pets
-  }
+    //call API to get all pets that are lost currently
+    // USE MEMCACHE FOR ALL DATA FOR BETTER PERFORMANCE
+    // CALL THE API ONCE THEN CHECK DATA IN MEMCACHE PRIOR TO CALLING API AGAIN
+
+
+    return {
+      pets: null,
+      users: null,
+      test: null
+    }
+  },
+  mounted () {
+      this.pets = pets
+      this.users = users
+      this.test = test
+    }
   }
 </script>
 

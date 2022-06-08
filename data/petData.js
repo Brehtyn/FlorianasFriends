@@ -45,7 +45,7 @@ exports.pets = [{
         }],
     leads: [],
     likes_total: 0,
-    likes_users: [],
+    likes_users_id: [],
     pet_name: 'Basil',
     user_name: 'Daniel',
     pet_pictures: ['img1', 'img2', 'img3']
@@ -61,7 +61,7 @@ exports.pets = [{
     comments: [],
     leads: ['first lead', 'second lead', 'third lead'],
     likes_total: 100,
-    likes_users: [1,2],
+    likes_users_id: [1,2],
     pet_name: 'Phil & Tena',
     user_name: 'Brent',
     pet_pictures: ['img1', 'img2', 'img3']

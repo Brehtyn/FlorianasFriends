@@ -1,9 +1,11 @@
 <template>
   <div>
     <PostInfo v-show="showPostInfo" @close-PostInfo="showPostInfo = false" />
+    <!-- Possibly Pass in User names instead of IDs Later -->
     <PostLikes
       v-show="showPostLikes"
       @close-PostLikes="showPostLikes = false"
+      :userIDs="pet.likes_users_id"
     />
 
     <div class="PostBase_modal post_style shadow shadow-lg">
@@ -87,7 +89,7 @@
         <div class="p-2 pt-0">
           <button class="general_button" @click="showPostLikes = true">
             <span> Loved by </span>
-            <span> <b> Example Name, Example Name 2, Examp... </b> </span>
+            <span> <b v-for="userIDs in pet.likes_users_id" :key="`${userIDs}`"> {{userIDs}} </b> </span>
           </button>
         </div>
 
@@ -123,6 +125,8 @@ export default {
     PostLikes,
     PostComments,
   },
+  // Possibly compute users here and then just pass down
+  // List of user names instead of IDs and then doing it from there
   props: ['pet'],
   data() {
     return {

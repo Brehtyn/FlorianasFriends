@@ -6,24 +6,17 @@
         <h3><b> Liked By </b></h3>
         <button @click="$emit('close-PostLikes')">Close</button>
       </div>
-      <div class="like_feed">
-        <PostLikesChild />
-          <PostLikesChild />
-            <PostLikesChild />
-              <PostLikesChild />
-                <PostLikesChild />
-                  <PostLikesChild />
-                    <PostLikesChild />
-                      <PostLikesChild />
-                        <PostLikesChild />
-                         <PostLikesChild />
+      <div class="like_feed" v-for="usersByID in userIDs" :key="usersByID">
+        <PostLikesChild :usersByID="usersByID"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+    props: ['userIDs']
+};
 </script>
 
 <style scoped>
