@@ -30,12 +30,6 @@
 
     <br/>
 
-      <template v-if="pets">
-        <div v-for="pet in pets.pets" :key="pet.id">
-            <PostBase :pet="pet"/>
-        </div>
-      </template>
-
     </div>
   </div>
 </template>
@@ -44,14 +38,6 @@
 import PostBase from '~/components/PostBase.vue';
 import pets from '../../data/petData'
 import users from '../../data/userData'
-
-    let test = {
-      innerTest: [{
-        id: 3,
-        name: 'test name'
-      }]
-    }
-
 
 export default {
   components: {PostBase},
@@ -66,13 +52,11 @@ export default {
     return {
       pets: null,
       users: null,
-      test: null
     }
   },
   mounted () {
       this.pets = pets
       this.users = users
-      this.test = test
     }
   }
 </script>

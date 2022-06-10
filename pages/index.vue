@@ -5,8 +5,14 @@
       <p>You are now logged in as {{ $nuxt.$fire.auth.currentUser.email }}</p>
     </div>
 
-    <PostBase />
-    <PostBase />
+
+      <template v-if="pets">
+        <div v-for="pet in pets.pets" :key="pet.id">
+            <PostBase :pet="pet"/>
+        </div>
+      </template>
+    <!-- <PostBase />
+    <PostBase /> -->
     
   </div>
 </template>
@@ -36,36 +42,49 @@
 </style>
 
 <script>
+import pets from '../data/petData'
+
 export default {
-  data() {
+
+    data() {
+
     return {
       pets: null,
-    };
-  },
-
-  async asyncData({ app, error }) {
-    const db = app.$fire.firestore;
-
-    try {
-      const documentSnapshot = await db
-        .collection("pets")
-        .doc("7E8jRCnF1ZKZnnWXnKfo")
-        .get();
-      if (!documentSnapshot.exists) {
-        error({ statusCode: 404, message: "Document does not exist" });
-        return;
-      }
-
-      // Returned value is merged with the values defined in data().
-      return {
-        pets: {
-          id: documentSnapshot.id,
-          ...documentSnapshot.data(),
-        },
-      };
-    } catch (e) {
-      error({ statusCode: 404, message: "Pets not found" });
     }
   },
+  mounted () {
+      this.pets = pets
+    }
+  
+  // data() {
+  //   return {
+  //     pets: null,
+  //   };
+  // },
+
+  // async asyncData({ app, error }) {
+  //   const db = app.$fire.firestore;
+
+  //   try {
+  //     const documentSnapshot = await db
+  //       .collection("pets")
+  //       .doc("7E8jRCnF1ZKZnnWXnKfo")
+  //       .get();
+  //     if (!documentSnapshot.exists) {
+  //       error({ statusCode: 404, message: "Document does not exist" });
+  //       return;
+  //     }
+
+  //     // Returned value is merged with the values defined in data().
+  //     return {
+  //       pets: {
+  //         id: documentSnapshot.id,
+  //         ...documentSnapshot.data(),
+  //       },
+  //     };
+  //   } catch (e) {
+  //     error({ statusCode: 404, message: "Pets not found" });
+  //   }
+  // },
 };
 </script>
