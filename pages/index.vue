@@ -11,8 +11,6 @@
             <PostBase :pet="pet"/>
         </div>
       </template>
-    <!-- <PostBase />
-    <PostBase /> -->
     
   </div>
 </template>

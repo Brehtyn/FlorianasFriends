@@ -49,6 +49,20 @@ export default {
     // CALL THE API ONCE THEN CHECK DATA IN MEMCACHE PRIOR TO CALLING API AGAIN
 
 
+
+    // Method to get all users and pass down that data
+    // checks if array of users exists
+    // If array of users exists in cache then get users from cache
+    // If array of users does not exist then use a GET request
+    // Firebase only allows 100 users data to be called at a time
+
+    // Maybe just pass in an array of ids instead and get all the users that way
+    // [FireBase limits you to first 100 users]
+    // Or at least the first hundred users then if they press see more then
+    // we can pass in the next 100 users
+    
+    // for right now pass in the uuser ids and get that squared away
+
     return {
       pets: null,
       users: null,
