@@ -61,7 +61,7 @@ exports.pets = [{
     comments: [],
     leads: ['first lead', 'second lead', 'third lead'],
     likes_total: 100,
-    likes_users_id: [1,2],
+    likes_users_id: [2,1],
     pet_name: 'Phil & Tena',
     user_name: 'Brent',
     pet_pictures: ['img1', 'img2', 'img3']

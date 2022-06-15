@@ -30,6 +30,13 @@
 
     <br/>
 
+      <template v-if="pets || users">
+        <div v-for="pet in pets.pets" :key="pet.id">
+            <PostBase :pet="pet" :users="users"/>
+        </div>
+      </template>
+
+      <!-- <h1>{{users}}</h1> -->
     </div>
   </div>
 </template>

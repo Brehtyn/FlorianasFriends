@@ -1,13 +1,14 @@
 <template>
   <div class="PostLikesChild">
     <img src="~assets/profile.svg" />
-    <h3>{{usersByID}}</h3>
+    <h3>{{name}}</h3>
   </div>
 </template>
 
 <script>
 export default {
-      props: ['usersByID']
+      // props: ['usersByID']
+      props: ['name']
 };
 </script>
 

@@ -5,8 +5,11 @@
     <PostLikes
       v-show="showPostLikes"
       @close-PostLikes="showPostLikes = false"
-      :userIDs="pet.likes_users_id"
+      :userNames="mapUsersToIDs"
+
     />
+
+    <!-- :userIDs="pet.likes_users_id" -->
 
     <div class="PostBase_modal post_style shadow shadow-lg">
       <PostSend v-show="showPostSend" @close-PostSend="showPostSend = false" />
@@ -89,7 +92,8 @@
         <div class="p-2 pt-0">
           <button class="general_button" @click="showPostLikes = true">
             <span> Loved by </span>
-            <span> <b v-for="userIDs in pet.likes_users_id" :key="`${userIDs}`"> {{userIDs}} </b> </span>
+            <span v-for="name in mapUsersToIDs" :key="name"><b>{{ name }}, </b></span>
+            <!-- <span> <b v-for="userIDs in pet.likes_users_id" :key="`${userIDs}`"> {{userIDs}} </b> </span> -->
           </button>
         </div>
 
@@ -127,7 +131,7 @@ export default {
   },
   // Possibly compute users here and then just pass down
   // List of user names instead of IDs and then doing it from there
-  props: ['pet'],
+  props: ['pet', 'users'],
   data() {
     return {
       liked: false,
@@ -138,6 +142,22 @@ export default {
       showPostComments: false,
     }
   },
+  computed: {
+    mapUsersToIDs() {
+        const arrayOfUsersNames = []
+
+        //iterate through array of ids
+        //for each id use find() to search for user in array of users
+        //if user exists then push user into arrayofUserNames
+        this.pet.likes_users_id.forEach((id) => {
+          const foundUser = this.users.users.find(obj => obj.id === id)
+          if(foundUser) {
+            arrayOfUsersNames.push(foundUser.name)
+          }
+        })
+        return arrayOfUsersNames
+    }
+  }
 };
 </script>
 
