@@ -4,7 +4,7 @@
       <div>
         <img src="~assets/profile.svg" height="16p" width="auto" />
       </div>
-      <p><b> Commenter Username: {{comment.user_id}} </b></p>
+      <p><b> Commenter Username: {{comment.user_username}} </b></p>
       <p>{{comment.comment}}</p>
     </div>
   </div>

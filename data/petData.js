@@ -11,9 +11,11 @@ exports.pets = [{
     comments: [
         {
             user_id: 2,
+            user_username: 'Daniel Ventura',
             comment: 'Example Comments go here! This is a really long example comment just for styling purposes'}, 
         {
             user_id: 1,
+            user_username: 'Floriana Hanna',
             comment: '2nd comment'
         }],
     leads: ['first lead', 'second lead', 'third lead'],
@@ -34,13 +36,16 @@ exports.pets = [{
     comments: [
         {
             user_id: 2,
+            user_username: "Daniel Ventura",
             comment: 'Example Comments go here! This is a really long example comment just for styling purposes'}, 
         {
             user_id: 1,
+            user_username: "Florriana Hanna",
             comment: '2nd comment'
         },
         {
             user_id: 3,
+            user_username: "Brentyn Hanna",
             comment: '2nd comment'
         }],
     leads: [],

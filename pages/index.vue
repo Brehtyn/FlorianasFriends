@@ -6,9 +6,9 @@
     </div>
 
 
-      <template v-if="pets">
+      <template v-if="pets || users">
         <div v-for="pet in pets.pets" :key="pet.id">
-            <PostBase :pet="pet"/>
+            <PostBase :pet="pet" :users="users"/>
         </div>
       </template>
     
@@ -41,6 +41,7 @@
 
 <script>
 import pets from '../data/petData'
+import users from '../data/userData'
 
 export default {
 
@@ -48,10 +49,12 @@ export default {
 
     return {
       pets: null,
+      users: null
     }
   },
   mounted () {
       this.pets = pets
+      this.users = users
     }
   
   // data() {
