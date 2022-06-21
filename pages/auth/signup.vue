@@ -1,45 +1,119 @@
 <template>
-  <section>
-      <h1>Sign Up!</h1>
-    <div>
-      <div>
-        <div>
-          <!-- <form @submit.stop.prevent="login"> 
-            <div>
-              <label>Email</label>
-              <div>
-                <input
-                  type="email"
-                  class="input"
-                  name="email"
-                  v-model="auth.email"
-                />
-              </div>
-            </div>
-            <div>
-              <label>Password</label>
-              <div>
-                <input
-                  type="password"
-                  class="input"
-                  name="password"
-                  v-model="auth.password"
-                />
-              </div>
-            </div>
-            <div>
-              <button type="submit" @click="() => login()">Log In</button>
-                <button type="submit" @click="() => forgotPassword()">Forgot Password</button>
-            </div>
-          </form> -->
+     <div class="rounded-3xl m-28 p-10 border-2">
+      <form
+        class="flex flex-col items-center justify-between"
+        @submit.stop.prevent="createUser"
+      >
+        <div class="pt-2">
+          <label>Email</label>
+          <div>
+            <input
+              type="email"
+              name="email"
+              class="
+                shadow
+                appearance-none
+                border
+                rounded
+                w-full
+                py-2
+                px-3
+                text-grey-darker
+                mb-3
+                input
+              "
+              v-model="auth.email"
+            />
+          </div>
         </div>
-      </div>
+        <div class="pt-2">
+          <label>Password</label>
+          <div>
+            <input
+              type="password"
+              name="password"
+              class="
+                shadow
+                appearance-none
+                border
+                rounded
+                w-full
+                py-2
+                px-3
+                text-grey-darker
+                mb-3
+                input
+              "
+              v-model="auth.password"
+            />
+          </div>
+        </div>
+        <div class="pt-4">
+          <button
+            type="submit"
+            @click="() => createUser()"
+            class="
+              shadow
+              appearance-none
+              border
+              rounded
+              w-full
+              py-2
+              px-3
+              text-grey-darker
+              mb-3
+              input
+            "
+          >
+            Sign Up
+          </button>
+          <button
+            class="
+              shadow
+              appearance-none
+              border
+              rounded
+              w-full
+              py-2
+              px-3
+              text-grey-darker
+              mb-3
+              input
+            "
+          >
+            <NuxtLink
+            class="shadow appearance-none border rounded w-full py-3 px-6 text-grey-darker m-20 input"
+            to="/auth/signin">Signin</NuxtLink>
+          </button>
+        </div>
+      </form>
     </div>
-  </section>
 </template>
 
 <script>
 export default {
-
-}
+  data() {
+    return {
+      auth: {
+        email: "",
+        password: "",
+      },
+    };
+  },
+  methods: {
+    createUser() {
+      this.$fire.auth
+        .createUserWithEmailAndPassword(this.auth.email, this.auth.password)
+        .catch(function (error) {
+          console.log(error.message);
+        })
+        .then((user) => {
+          //we are signed in
+          console.log(user);
+          console.log('it creates the user')
+          $nuxt.$router.push("/");
+        });
+    }
+  },
+};
 </script>
