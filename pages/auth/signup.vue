@@ -100,8 +100,11 @@ export default {
       },
     };
   },
+  //Creates user and automatically signs you in
   methods: {
     createUser() {
+       const db = this.$fire.firestore;
+
       this.$fire.auth
         .createUserWithEmailAndPassword(this.auth.email, this.auth.password)
         .catch(function (error) {
@@ -109,6 +112,19 @@ export default {
         })
         .then((user) => {
           //we are signed in
+          const userID = user.user.uid
+          const userData ={
+            userID: userID,
+            email: user.user.email
+          }
+
+          db.collection("users").doc(userID).set(userData).then(() => {
+            console.log("User successfully added to the DB!");
+          })
+          .catch((e) => {
+            console.log("Error adding user to the DB: ", e);
+          });
+
           console.log(user);
           console.log('it creates the user')
           $nuxt.$router.push("/");
