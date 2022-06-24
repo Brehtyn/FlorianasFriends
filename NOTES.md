@@ -111,13 +111,15 @@ SAMPLE POST MODEL
 -|post
     -|postID
     -|UserID
+    -|Owner Name or Username
+    -|ProfileUser URL(URL string, attach to name in above)
     -|petInformation (object)
         -|petID
-        -|petURL (points to individual pet page)
+                -|petURL (points to individual pet page) - Don't think we need this since no reason to have individual pages like this
         -|date_lost
-        -|Owner Name or Username
-        -|ProfileUser URL(URL string, attach to name in above)
-        -|pet_pictures
+        -|animal
+        -|pet_pictures - references pictures in the cloud db
+        -|found
     -|Comments/Leads (array of objects)
         -[{
             -|commentId
@@ -126,6 +128,7 @@ SAMPLE POST MODEL
             -|ProfileUser URL
             -|Profile Picture
             -|Comment (string)
+            -|lead - this will say whether it is a comment or a lead
         }]
     -|Likes (array of objects again)
         -[{
@@ -144,7 +147,13 @@ SAMPLE USER MODEL - Don't need post ID, we will query posts using User ID
     -|Username
     -|Email
     -|Profile Picture (probably ID or some reference)
-    -|Posts Saved/Posts Liked (can make this an object)
+    -|location - so they can see only posts that are in thier area 
+
+    There will be two tabs for users, or maybe just home page
+    Not sure
+    One will be posts they liked or saved to be able to get updates on those
+    The other will be all pets
+    -|Posts Saved/Posts Liked (can make this an array)
         -|Posts Snippet (object)
             -|Pet Name
             -|Pet Picture
@@ -152,4 +161,7 @@ SAMPLE USER MODEL - Don't need post ID, we will query posts using User ID
             -|Found Status
             -|URL to it's own page
     -|Settings (object with it's own properties for settings)
-    
+
+
+    Each post will have the ability to have it's own page
+    That way we can reference that post specifically for the user and they will be able to get updates on the pet status

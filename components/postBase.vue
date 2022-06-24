@@ -5,7 +5,7 @@
     <PostLikes
       v-show="showPostLikes"
       @close-PostLikes="showPostLikes = false"
-      :userNames="mapUsersToIDs"
+      :userNames="post.likes"
 
     />
 
@@ -23,16 +23,16 @@
           <div>
             <h2>
               <b>
-                <span> {{pet.pet_name}} </span>
+                <span> {{post.petInformation.name}} </span>
                 <span> from </span>
-                <span> {{pet.user_name}} </span>
+                <span> {{post.userName}} </span>
               </b>
             </h2>
           </div>
           <div>
             <h3>
               <span> Lost on </span>
-              <span> {{pet.date_lost}} </span>
+              <span> {{post.petInformation.date_lost}} </span>
             </h3>
           </div>
         </div>
@@ -92,7 +92,7 @@
         <div class="p-2 pt-0">
           <button class="general_button" @click="showPostLikes = true">
             <span> Loved by </span>
-            <span v-for="name in mapUsersToIDs" :key="name"><b>{{ name }}, </b></span>
+            <span v-for="user in post.likes" :key="user.user_username"><b>{{ user.user_username }}, </b></span>
             <!-- <span> <b v-for="userIDs in pet.likes_users_id" :key="`${userIDs}`"> {{userIDs}} </b> </span> -->
           </button>
         </div>
@@ -103,7 +103,7 @@
           <PostComments
             v-show="showPostComments"
             @close-PostComments="showPostComments = false"
-            :comments="pet.comments"
+            :comments="post.comments"
           />
           <button class="general_button" @click="showPostComments = true">
             <h2>View all Comments & Leads . . .</h2>
@@ -131,7 +131,7 @@ export default {
   },
   // Possibly compute users here and then just pass down
   // List of user names instead of IDs and then doing it from there
-  props: ['pet', 'users'],
+  props: ['post', 'users'],
   data() {
     return {
       liked: false,

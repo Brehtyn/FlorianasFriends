@@ -7,8 +7,8 @@
         <button @click="$emit('close-PostLikes')">Close</button>
       </div>
 
-      <div class="like_feed" v-for="(name, index) in userNames" :key="index">
-        <PostLikesChild :name="name"/>
+      <div class="like_feed" v-for="(user, index) in userNames" :key="index">
+        <PostLikesChild :name="user.user_username"/>
       </div>
 
     </div>

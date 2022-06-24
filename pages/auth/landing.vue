@@ -30,21 +30,21 @@
 
     <br/>
 
-      <template v-if="pets || users">
-        <div v-for="pet in pets.pets" :key="pet.id">
-            <PostBase :pet="pet" :users="users"/>
+      <template v-if="posts || users">
+        <div v-for="post in posts.posts" :key="post.uid">
+            <PostBase :post="post" :users="users"/>
         </div>
       </template>
 
-      <!-- <h1>{{users}}</h1> -->
     </div>
   </div>
 </template>
 
 <script>
 import PostBase from '~/components/PostBase.vue';
-import pets from '../../data/petData'
+// import pets from '../../data/petData'
 import users from '../../data/userData'
+import posts from '../../data/postData'
 
 export default {
   components: {PostBase},
@@ -71,13 +71,15 @@ export default {
     // for right now pass in the uuser ids and get that squared away
 
     return {
-      pets: null,
+      // pets: null,
       users: null,
+      posts: null
     }
   },
   mounted () {
-      this.pets = pets
+      // this.pets = pets
       this.users = users
+      this.posts = posts
     }
   }
 </script>
