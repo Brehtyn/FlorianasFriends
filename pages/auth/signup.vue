@@ -26,8 +26,28 @@
             />
           </div>
         </div>
+        <div class="pt-2">
+          <label>State</label>
+          <div>
+          <v-select
+            class="              shadow
+              appearance-none
+              border
+              rounded
+              w-full
+              py-2
+              px-3
+              text-grey-darker
+              mb-3
+              input"
+            :options="options"
+            :value="stateSelection"
+            @input="(stateOption) => userStateSelection(stateOption)"
+          />
+          </div>
+        </div>
          <div class="pt-2">
-          <label>City, State</label>
+          <label>City</label>
           <div>
             <input
               type="text"
@@ -135,6 +155,9 @@
 </template>
 
 <script>
+import { states }from '../../data/states'
+import vSelect from "vue-select"
+
 export default {
   data() {
     return {
@@ -144,8 +167,17 @@ export default {
         name: "",
       },
       location: "",
-      debounceTimer: null
+      debounceTimer: null,
+      stateSelection: ""
     };
+  },
+  //computing states as options
+  computed: {
+    options: () => states
+  },
+  //v-select component
+  components:{
+    vSelect
   },
   //Creates user and automatically signs you in
   methods: {
@@ -190,7 +222,9 @@ export default {
         console.log(event.target.value)
       }, 1000)
     },
-
+    userStateSelection(stateOption){
+        this.stateSelection = stateOption
+    }
   },
 };
 </script>
