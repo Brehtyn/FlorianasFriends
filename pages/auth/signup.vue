@@ -5,6 +5,51 @@
         @submit.stop.prevent="createUser"
       >
         <div class="pt-2">
+          <label>Name (First and Last)</label>
+          <div>
+            <input
+              type="text"
+              name="name"
+              class="
+                shadow
+                appearance-none
+                border
+                rounded
+                w-full
+                py-2
+                px-3
+                text-grey-darker
+                mb-3
+                input
+              "
+              v-model="auth.name"
+            />
+          </div>
+        </div>
+         <div class="pt-2">
+          <label>City, State</label>
+          <div>
+            <input
+              type="text"
+              name="location"
+              class="
+              shadow
+              appearance-none
+              border
+              rounded
+              w-full
+              py-2
+              px-3
+              text-grey-darker
+              mb-3
+              input
+              "
+              v-model="location"
+              @input="debounce"
+            />
+          </div>
+        </div>
+        <div class="pt-2">
           <label>Email</label>
           <div>
             <input
@@ -82,7 +127,6 @@
             "
           >
             <NuxtLink
-            class="shadow appearance-none border rounded w-full py-3 px-6 text-grey-darker m-20 input"
             to="/auth/signin">Signin</NuxtLink>
           </button>
         </div>
@@ -97,7 +141,10 @@ export default {
       auth: {
         email: "",
         password: "",
+        name: "",
       },
+      location: "",
+      debounceTimer: null
     };
   },
   //Creates user and automatically signs you in
@@ -115,7 +162,11 @@ export default {
           const userID = user.user.uid
           const userData ={
             userID: userID,
-            email: user.user.email
+            email: user.user.email,
+            name: this.auth.name,
+            location: this.location,
+            postsLikedOrSaved: [],
+            settings: []
           }
 
           db.collection("users").doc(userID).set(userData).then(() => {
@@ -129,7 +180,17 @@ export default {
           console.log('it creates the user')
           $nuxt.$router.push("/");
         });
-    }
+    },
+    debounce(event) {
+      console.log('started typing')
+      clearTimeout(this.debounceTimer)
+      this.debounceTimer = setTimeout(() => {
+        //this is where we will fire the request
+        //only once one second has passed
+        console.log(event.target.value)
+      }, 1000)
+    },
+
   },
 };
 </script>

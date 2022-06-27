@@ -19,6 +19,21 @@ export default {
     ]
   },
 
+  publicRuntimeConfig: {
+    baseURL: process.env.BASE_URL || 'https://nuxtjs.org',
+    //For axios base url/browserurl, not sure the difference
+    axios: {
+      browserBaseURL: process.env.BASE_URL
+    }
+  },
+  privateRuntimeConfig: {
+    apiKey: process.env.REST_API_KEY,
+    applicationID: process.env.APPLICATION_ID,
+    //for axios base url
+    axios: {
+      baseURL: process.env.BASE_URL
+    }
+  },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     "~/assets/css/main.css"
@@ -45,7 +60,8 @@ export default {
   modules: [
           // https://go.nuxtjs.dev/pwa
           '@nuxtjs/pwa',
-              
+          //axios for nuxt
+          '@nuxtjs/axios',
           [
             '@nuxtjs/firebase',
             {

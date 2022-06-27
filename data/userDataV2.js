@@ -1,5 +1,5 @@
 exports.users = [{
-    uid: 123,
+    userID: 123,
     name: 'Floriana Hanna',
     username: 'Floriana-Hanna',
     email: "floriana@gmail.com",
