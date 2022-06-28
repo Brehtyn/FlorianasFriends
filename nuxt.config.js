@@ -34,6 +34,7 @@ export default {
       baseURL: process.env.BASE_URL
     }
   },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     "~/assets/css/main.css"
