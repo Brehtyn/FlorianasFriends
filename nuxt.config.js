@@ -21,17 +21,11 @@ export default {
 
   publicRuntimeConfig: {
     baseURL: process.env.BASE_URL || 'https://nuxtjs.org',
+    apiKey: process.env.REST_API_KEY,
+    applicationID: process.env.APPLICATION_ID,
     //For axios base url/browserurl, not sure the difference
     axios: {
       browserBaseURL: process.env.BASE_URL
-    }
-  },
-  privateRuntimeConfig: {
-    apiKey: process.env.REST_API_KEY,
-    applicationID: process.env.APPLICATION_ID,
-    //for axios base url
-    axios: {
-      baseURL: process.env.BASE_URL
     }
   },
 
