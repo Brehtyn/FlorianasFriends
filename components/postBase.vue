@@ -41,7 +41,7 @@
 
       <button @click="showPostInfo = true">
         <div class="picture_area">
-          <img src="~/assets/footer_backdrop.jpg" />
+          <nuxt-img src="dog.jpg" />
         </div>
       </button>
 
@@ -93,26 +93,44 @@
         <div class="p-2 pt-0">
           <button class="general_button" @click="showPostLikes = true">
             <span> Loved by </span>
-            <span id="liked_by_users" v-for="user in post.likes" :key="user.user_username">
-              <b>{{user.user_username}}</b>
+            <span
+              id="liked_by_users"
+              v-for="user in post.likes"
+              :key="user.user_username"
+            >
+              <b>{{ user.user_username }}</b>
             </span>
             <!-- <span> <b v-for="userIDs in pet.likes_users_id" :key="`${userIDs}`"> {{userIDs}} </b> </span> -->
           </button>
         </div>
 
         <div class="p-2 pt-0">
+          <div class="pb-2">
+            <p>
+              <span>
+                <b> {{ post.userName }} </b>
+              </span>
+              Lets write a whole description about what happened to this dog it
+              was log on such and such day so tragic
+            </p>
+          </div>
+
+          <button class="general_button" @click="showPostComments = true">
+            <!-- Need to add prop for # off comments and leads and pass here -->
+            <h2 id="view_comments">View all # comment(s) & # lead(s)</h2>
+          </button>
+
           <!-- For loop for comment and users that comment -->
           <!-- Need to import user data to get name from user id -->
           <PostComments
+            class="pt-2 pl-3"
             v-show="showPostComments"
             @close-PostComments="showPostComments = false"
             :comments="post.comments"
           />
-          <button class="general_button" @click="showPostComments = true">
-            <h2>View all Comments & Leads</h2>
-          </button>
 
           <div class="postcommentAction" @click="showPostCommentsChild = true">
+            <!-- Need to export comment / lead to post bucket -->
             <button class="comment_button">Comment Support</button>
             <button class="lead_button">Report Sighting</button>
           </div>
@@ -234,13 +252,17 @@ export default {
 }
 
 #liked_by_users:after {
-  content:", ";
+  content: ", ";
 }
 #liked_by_users:nth-last-child(2):after {
   content: ", and ";
 }
 #liked_by_users:last-child:after {
   content: "";
+}
+
+#view_comments {
+  color: var(--clr-darkgrey);
 }
 
 .postcommentAction {

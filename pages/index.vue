@@ -5,9 +5,11 @@
       <p>You are now logged in as {{ $nuxt.$fire.auth.currentUser.email }}</p>
     </div>
     <template v-if="posts || users">
+
       <div v-for="post in posts.posts" :key="post.uid">
         <PostBase :post="post" :users="users" />
       </div>
+      
     </template>
   </div>
 </template>

@@ -42,7 +42,7 @@ export default {
   max-height: 80%;
   transform: translate(-50%, 0);
   background-color: var(--clr-whitebg);
-  border-radius: 6px;
+  border-radius: 6px 6px 0 0;
   border: 2px solid var(--clr-whiteborder);
   padding: 0;
   z-index: 50;

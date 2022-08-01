@@ -57,6 +57,7 @@ export default {
           '@nuxtjs/pwa',
           //axios for nuxt
           '@nuxtjs/axios',
+          '@nuxt/image',
           [
             '@nuxtjs/firebase',
             {
@@ -85,10 +86,8 @@ export default {
               }
             }
           ]
-
-
   ],
-
+  
   pwa: {
     manifest: {
       lang: 'en'
@@ -97,5 +96,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+   // Options for image optimzation https://image.nuxtjs.org/getting-started/installation
+  image: {
+    dir: 'assets/defaults'
   }
 }
