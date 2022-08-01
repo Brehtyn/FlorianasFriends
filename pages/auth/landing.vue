@@ -30,12 +30,6 @@
 
     <br/>
 
-      <template v-if="posts || users">
-        <div v-for="post in posts.posts" :key="post.uid">
-            <PostBase :post="post" :users="users"/>
-        </div>
-      </template>
-
     </div>
   </div>
 </template>

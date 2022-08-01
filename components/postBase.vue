@@ -6,7 +6,6 @@
       v-show="showPostLikes"
       @close-PostLikes="showPostLikes = false"
       :userNames="post.likes"
-
     />
 
     <!-- :userIDs="pet.likes_users_id" -->
@@ -23,16 +22,18 @@
           <div>
             <h2>
               <b>
-                <span> {{post.petInformation.name}} </span>
-                <span> from </span>
-                <span> {{post.userName}} </span>
+                <span> {{ post.petInformation.name }} </span>
+              </b>
+              <span> from </span>
+              <b>
+                <span> {{ post.userName }} </span>
               </b>
             </h2>
           </div>
           <div>
             <h3>
               <span> Lost on </span>
-              <span> {{post.petInformation.date_lost}} </span>
+              <span> {{ post.petInformation.date_lost }} </span>
             </h3>
           </div>
         </div>
@@ -92,7 +93,9 @@
         <div class="p-2 pt-0">
           <button class="general_button" @click="showPostLikes = true">
             <span> Loved by </span>
-            <span v-for="user in post.likes" :key="user.user_username"><b>{{ user.user_username }}, </b></span>
+            <span id="liked_by_users" v-for="user in post.likes" :key="user.user_username">
+              <b>{{user.user_username}}</b>
+            </span>
             <!-- <span> <b v-for="userIDs in pet.likes_users_id" :key="`${userIDs}`"> {{userIDs}} </b> </span> -->
           </button>
         </div>
@@ -106,10 +109,13 @@
             :comments="post.comments"
           />
           <button class="general_button" @click="showPostComments = true">
-            <h2>View all Comments & Leads . . .</h2>
+            <h2>View all Comments & Leads</h2>
           </button>
 
-          <input class="comment_input" placeholder="Type your comment here." />
+          <div class="postcommentAction" @click="showPostCommentsChild = true">
+            <button class="comment_button">Comment Support</button>
+            <button class="lead_button">Report Sighting</button>
+          </div>
         </div>
       </div>
     </div>
@@ -131,7 +137,7 @@ export default {
   },
   // Possibly compute users here and then just pass down
   // List of user names instead of IDs and then doing it from there
-  props: ['post', 'users'],
+  props: ["post", "users"],
   data() {
     return {
       liked: false,
@@ -140,24 +146,24 @@ export default {
       showPostInfo: false,
       showPostLikes: false,
       showPostComments: false,
-    }
+    };
   },
   computed: {
     mapUsersToIDs() {
-        const arrayOfUsersNames = []
+      const arrayOfUsersNames = [];
 
-        //iterate through array of ids
-        //for each id use find() to search for user in array of users
-        //if user exists then push user into arrayofUserNames
-        this.pet.likes_users_id.forEach((id) => {
-          const foundUser = this.users.users.find(obj => obj.id === id)
-          if(foundUser) {
-            arrayOfUsersNames.push(foundUser.name)
-          }
-        })
-        return arrayOfUsersNames
-    }
-  }
+      //iterate through array of ids
+      //for each id use find() to search for user in array of users
+      //if user exists then push user into arrayofUserNames
+      this.pet.likes_users_id.forEach((id) => {
+        const foundUser = this.users.users.find((obj) => obj.id === id);
+        if (foundUser) {
+          arrayOfUsersNames.push(foundUser.name);
+        }
+      });
+      return arrayOfUsersNames;
+    },
+  },
 };
 </script>
 
@@ -227,13 +233,55 @@ export default {
   height: fit-content;
 }
 
-.comment_input {
+#liked_by_users:after {
+  content:", ";
+}
+#liked_by_users:nth-last-child(2):after {
+  content: ", and ";
+}
+#liked_by_users:last-child:after {
+  content: "";
+}
+
+.postcommentAction {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 1rem 0;
+}
+.postcommentAction > button {
   width: 100%;
-  margin-top: 1rem;
-  border: 2px solid rgba(138, 138, 138, 0.5);
-  border-radius: 8px;
-  padding: 0 10px;
-  margin-bottom: 10px;
+  padding: 0.8rem;
+  border-radius: 12px;
+}
+.postcommentAction > button:hover {
+  opacity: 77%;
+}
+.postcommentAction > button:active {
+  opacity: 77%;
+}
+
+.comment_button {
+  background-color: var(--clr-pink);
+  margin-right: 0.5rem;
+}
+.comment_button:before {
+  content: url(~assets/heart.svg);
+  position: relative;
+  z-index: 50;
+  left: -5px;
+  top: 2px;
+}
+.lead_button {
+  background-color: var(--clr-accent);
+  margin-left: 0.5rem;
+}
+.lead_button:before {
+  content: url(~assets/eye.svg);
+  position: relative;
+  z-index: 50;
+  left: -5px;
+  top: 1px;
 }
 
 .transition_animation {

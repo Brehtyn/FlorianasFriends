@@ -17,7 +17,7 @@ export default {
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 .PostLikesChild > img {
   width: 60px;

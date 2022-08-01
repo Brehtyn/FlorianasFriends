@@ -4,14 +4,11 @@
       <h1>Logged In Dashboard</h1>
       <p>You are now logged in as {{ $nuxt.$fire.auth.currentUser.email }}</p>
     </div>
-
-
-      <template v-if="posts || users">
-        <div v-for="post in posts.posts" :key="post.uid">
-            <PostBase :post="post" :users="users"/>
-        </div>
-      </template>
-    
+    <template v-if="posts || users">
+      <div v-for="post in posts.posts" :key="post.uid">
+        <PostBase :post="post" :users="users" />
+      </div>
+    </template>
   </div>
 </template>
 
@@ -23,7 +20,7 @@
 .post_style {
   width: 100%;
   max-width: 700px;
-  margin: .5rem auto;
+  margin: 0.5rem auto;
   padding: 1rem;
 }
 
@@ -41,25 +38,23 @@
 
 <script>
 // import pets from '../data/petData'
-import users from '../data/userData'
-import posts from '../data/postData'
+import users from "../data/userData";
+import posts from "../data/postData";
 
 export default {
-
-    data() {
-
+  data() {
     return {
       // pets: null,
       users: null,
-      posts: null
-    }
+      posts: null,
+    };
   },
-  mounted () {
-      // this.pets = pets
-      this.users = users
-      this.posts = posts
-    }
-  
+  mounted() {
+    // this.pets = pets
+    this.users = users;
+    this.posts = posts;
+  },
+
   // data() {
   //   return {
   //     pets: null,
