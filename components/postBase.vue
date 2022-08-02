@@ -117,7 +117,7 @@
 
           <button class="general_button" @click="showPostComments = true">
             <!-- Need to add prop for # off comments and leads and pass here -->
-            <h2 id="view_comments">View all # comment(s) & # lead(s)</h2>
+            <h2 id="view_comments">View all # lead(s) & # comment(s)</h2>
           </button>
 
           <!-- For loop for comment and users that comment -->

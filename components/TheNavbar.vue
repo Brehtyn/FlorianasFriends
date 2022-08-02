@@ -53,5 +53,11 @@ export default {
   border-left: 1px solid var(--clr-whiteborder);
 }
 
+@media screen and (max-width: 400px) {
+  nav {
+    display: none;
+  }
+}
+
 
 </style>

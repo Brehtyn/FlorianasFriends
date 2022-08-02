@@ -40,7 +40,7 @@ exports.pets = [{
             comment: 'Example Comments go here! This is a really long example comment just for styling purposes'}, 
         {
             user_id: 1,
-            user_username: "Florriana Hanna",
+            user_username: "Floriana Hanna",
             comment: '2nd comment'
         },
         {

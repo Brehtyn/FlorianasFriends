@@ -1,8 +1,8 @@
 exports.posts = [{
     uid: 1,
     userID: 123,
-    userName: 'Florianna Hanna',
-    userProfileURL: 'www.florianasfriends/florianna-hanna',
+    userName: 'Floriana Hanna',
+    userProfileURL: 'www.florianasfriends/floriana-hanna',
     userProfilePic: 'string to profile pic',
     petInformation: {
         petID: 1,
@@ -26,8 +26,8 @@ exports.posts = [{
         },
         {
             commentID: 2,
-            user_username: 'Florianna Hanna',
-            userProfileURL: 'www.florianasfriends/florianna-hanna',
+            user_username: 'floriana Hanna',
+            userProfileURL: 'www.florianasfriends/floriana-hanna',
             userProfilePic: 'string to profile pic',
             comment: 'Example Comments go here! This is a really long example comment just for styling purposes', 
             lead: false 
@@ -44,12 +44,12 @@ exports.posts = [{
     likes: [
         {
             user_username: 'Floriana Hanna',
-            userProfileURL: 'www.florianasfriends/florianna-hanna',
+            userProfileURL: 'www.florianasfriends/floriana-hanna',
             userProfilePic: 'string to profile pic'
         },
         {
             user_username: 'Daniel Ventura',
-            userProfileURL: 'www.florianasfriends/florianna-hanna',
+            userProfileURL: 'www.florianasfriends/floriana-hanna',
             userProfilePic: 'string to profile pic'
         },
         {
@@ -119,7 +119,7 @@ exports.posts = [{
     likes: [
         {
             user_username: 'Floriana Hanna',
-            userProfileURL: 'www.florianasfriends/florianna-hanna',
+            userProfileURL: 'www.florianasfriends/floriana-hanna',
             userProfilePic: 'string to profile pic'
         },
     ]

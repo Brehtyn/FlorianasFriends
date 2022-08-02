@@ -18,7 +18,7 @@ exports.users = [{
     postsLikedOrSaved: [
         {
             petName: 'Rover',
-            postURL: 'www.floriannasfriends.com/dogge1post',
+            postURL: 'www.florianasfriends.com/dogge1post',
             animal: 'dog',
             date_lost: '1580901774643',
             found: false,
@@ -37,7 +37,7 @@ exports.users = [{
     postsLikedOrSaved: [
         {
             petName: 'Rover',
-            postURL: 'www.floriannasfriends.com/dogge1post',
+            postURL: 'www.florianasfriends.com/dogge1post',
             animal: 'dog',
             date_lost: '1580901774643',
             found: false,
