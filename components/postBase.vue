@@ -15,7 +15,7 @@
 
       <div class="pet_data">
         <div class="profile_pic">
-          <img src="~assets/profile.svg" />
+          <img src="~assets/defaults/profile.svg" />
         </div>
 
         <div class="px-8">
@@ -41,7 +41,7 @@
 
       <button @click="showPostInfo = true">
         <div class="picture_area">
-          <nuxt-img src="dog.jpg" />
+          <nuxt-img src="defaults/dog.jpg" />
         </div>
       </button>
 
@@ -129,7 +129,7 @@
             :comments="post.comments"
           />
 
-          <div class="postcommentAction" @click="showPostCommentsChild = true">
+          <div class="postcommentAction">
             <!-- Need to export comment / lead to post bucket -->
             <button class="comment_button">Comment Support</button>
             <button class="lead_button">Report Sighting</button>
@@ -281,29 +281,6 @@ export default {
 }
 .postcommentAction > button:active {
   opacity: 77%;
-}
-
-.comment_button {
-  background-color: var(--clr-pink);
-  margin-right: 0.5rem;
-}
-.comment_button:before {
-  content: url(~assets/heart.svg);
-  position: relative;
-  z-index: 50;
-  left: -5px;
-  top: 2px;
-}
-.lead_button {
-  background-color: var(--clr-accent);
-  margin-left: 0.5rem;
-}
-.lead_button:before {
-  content: url(~assets/eye.svg);
-  position: relative;
-  z-index: 50;
-  left: -5px;
-  top: 1px;
 }
 
 .transition_animation {

@@ -6,7 +6,7 @@
         <p class="px-5">Close</p>
       </button>
       <div class="profilebar_contents">
-        <img class="w-1/4" src="~assets/profile.svg" />
+        <img class="w-1/4" src="~assets/defaults/profile.svg" />
         <span> User Logged In </span>
         <hr />
         <nav>

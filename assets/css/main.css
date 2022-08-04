@@ -2,6 +2,7 @@
     font-family: FredokaOne;
     src: url(~/assets/fonts/FredokaOne-Regular.otf);
 }
+
 :root {
     --ff-main: 'DM Sans', sans-serif;
     --ff-accent: 'FredokaOne', cursive;
@@ -30,14 +31,16 @@ b {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-  
+}
+
 .align-text-center {
     text-align: center;
-} 
+}
+
 .align-text-right {
     text-align: right;
 }
+
 .align-text-left {
     text-align: left;
 }
@@ -49,7 +52,30 @@ b {
     width: 100%;
     height: 100%;
     text-align: left;
-  }
+}
+
+.comment_button {
+    background-color: var(--clr-pink);
+    margin-right: 0.5rem;
+}
+.comment_button:before {
+    content: url(~assets/heart.svg);
+    position: relative;
+    z-index: 50;
+    left: -5px;
+    top: 2px;
+}
+.lead_button {
+    background-color: var(--clr-accent);
+    margin-left: 0.5rem;
+}
+.lead_button:before {
+    content: url(~assets/eye.svg);
+    position: relative;
+    z-index: 50;
+    left: -5px;
+    top: 1px;
+}
 
 .container-split-50 {
     display: flex;
@@ -65,12 +91,13 @@ b {
     border-radius: 10px;
     padding: 0;
     filter: drop-shadow(0 0.5mm 0.5mm rgba(0, 0, 0, 0.2));
-  }
+}
 
 @keyframes left-slide-in {
     from {
         transform: translateX(100%);
     }
+
     to {
         transform: translateX(0);
     }
@@ -78,13 +105,15 @@ b {
 
 @keyframes transition-excite {
     from {
-        transform:scale(1);
+        transform: scale(1);
     }
+
     50% {
-        transform:scale(1.5);
+        transform: scale(1.5);
         margin-left: .5rem;
     }
+
     to {
-        transform:scale(1);
+        transform: scale(1);
     }
 }

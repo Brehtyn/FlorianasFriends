@@ -99,6 +99,6 @@ export default {
   },
    // Options for image optimzation https://image.nuxtjs.org/getting-started/installation
   image: {
-    dir: 'assets/defaults'
+    dir: 'assets'
   }
 }
