@@ -54,6 +54,7 @@
             type="submit"
             @click="() => login()"
             class="
+              button-hover
               shadow
               appearance-none
               border
@@ -72,6 +73,7 @@
             type="submit"
             @click="() => forgotPassword()"
             class="
+              button-hover
               shadow
               appearance-none
               border
@@ -81,11 +83,13 @@
               px-3
               text-grey-darker
               mb-3
-              input
-            "
-          >
+              input">
             Forgot Password
           </button>
+          <p class="align-text-center text-gray-400 tracking-tight font-light text-sm w-100">
+            Need an account? Get started
+            <NuxtLink class="signup-link text-blue-600" to="/auth/signup">here</NuxtLink>.
+          </p>
         </div>
       </form>
     </div>
@@ -129,3 +133,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.signup-link {
+  text-decoration: black underline !important;
+}
+</style>

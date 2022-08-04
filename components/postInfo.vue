@@ -229,6 +229,7 @@ hr {
 }
 .info_picture_gallery > img {
   width: calc( 50% - 2rem );
+  min-width: 300px;
   height: auto;
   margin: 1rem;
 }

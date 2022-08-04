@@ -93,6 +93,14 @@ b {
     filter: drop-shadow(0 0.5mm 0.5mm rgba(0, 0, 0, 0.2));
 }
 
+.button-hover {
+    cursor: pointer;
+}
+.button-hover:hover {
+    background-color: var(--clr-accent);
+    filter: drop-shadow(0 0.5mm 0.5mm rgba(0, 0, 0, 0.4));
+}
+
 @keyframes left-slide-in {
     from {
         transform: translateX(100%);

@@ -21,11 +21,11 @@
     <div class="align-content-center">
       <nav>
         <NuxtLink
-          class="shadow appearance-none border rounded w-full py-3 px-6 text-grey-darker m-20 input"
-          to="/auth/signin">Signin</NuxtLink>
+          class="button-hover shadow appearance-none border rounded w-full py-3 px-6 text-grey-darker m-20 input"
+          to="/auth/signin">Sign In</NuxtLink>
         <NuxtLink 
-          class="shadow appearance-none border rounded w-full py-3 px-6 text-grey-darker m-20 input"
-          to="/auth/signup">Signup</NuxtLink>
+          class="button-hover shadow appearance-none border rounded w-full py-3 px-6 text-grey-darker m-20 input"
+          to="/auth/signup">Sign Up</NuxtLink>
       </nav>
 
     <br/>
