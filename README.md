@@ -2,8 +2,9 @@
 # Florianas Friends
 
 This project was built to help retrieve/find lost animals due to car wrecks. It is built using Nuxt 
-and Firebase. In loving memory of Floriana Hanna <3.
+and Firebase. More information and a live demo will be avaliable soon.
 
+In loving memory of Floriana Hanna <3.
 
 
 ## Authors
@@ -38,30 +39,23 @@ Start the server
 
 ## Documentation
 
-### Layouts folder
-The layouts folder only contains one file currently which is the default.vue file. This
-file is the layout structure of the entire website and must be included. It would behoove 
-the developers to make a <template> <header> <nuxt> <footer> <template> structure where
-the entire site is wrapped in a template and with the Nuxt app being injected into the template.
-The header and footer would always appear in the app with only the Nuxt content changing.
+### Firestore
+Firestore is used for user authentication and database buckets. External CMS must be configured.
 
-### Middleware folder
-The middleware folder only has an auth.js file in it currently and it must be configured
-in the nuxt.config.js file prior to it being read in the app. This file checks the route
-trying to be reached as well as the authentication of a user. If the user isn't authenticated
-and is trying to reach a protected route they will be redirected. Upon authentication through
-the signin page they will again be redirected but this time into the protected route.
+For detailed explanation on how things work, check out the [documentation](https://firebase.google.com/).
 
-### Store folder
-This folder is not required but will be used in this project. The store a store is a 
-centralized location to keep up with data that is available across all the application components. 
-The store handles all states
-of the user. It handles any major changes in state and ensures that all errors are handled
-in this manner. It also creates for a better/bug-free environment when implemented. The store
-works in this manner: it contains actions, mutations, and state. When an action is called 
-the state is changed using a mutation. More information on the usage (highly recommend) of
-the store can be found here
-- [@NuxtStore](https://vueschool.io/articles/vuejs-tutorials/what-is-a-store-in-vue-js/#:~:text=In%20Vue%2C%20as%20well%20as,that%20belongs%20in%20a%20store.)
+### VeeValidate
+Any user input utilizes VeeValidate v3 for form validation. Components are imported where needed and wrap inputs. Rules are defined
+in plugins/vee-validation.js.
+
+For detailed explanation on how things work, check out the [documentation](https://vee-validate.logaretm.com/v3/).
+
+### TailwindCSS
+Some pages and components are completely or partially styled using TailwindCSS. To utilize, use preset attributes in classes of html elements, referencing their stylesheets.
+
+For detailed explanation on how things work, check out the [documentation](https://tailwindcss.com/).
+
+## Nuxt
 
 ### nuxt.config.js
 #### Routing
@@ -69,14 +63,12 @@ This file contains all of the configs for Nuxt including plugins, middleware, me
 Nuxt uses file routing automatically: the pages folder contains automatic routing except
 for dynamic routing such as pet:id where the individual
 pet is necessary. All of that can be configured in the router portion of the config file.
-More information on dynamic routing for Nuxt can be found here
-- [@NuxtDynamicRouting](https://nuxtjs.org/examples/routing/dynamic-pages)
+More information on dynamic routing for Nuxt can be [found here](https://nuxtjs.org/examples/routing/dynamic-pages).
 
 Also configured in the router is the middleware. The only configuration currently is for
 authentication purposes and is set to 'auth'. The middleware will run prior to the loading
 the current pages. In our case it will run before getting to any of the auth routes.
-More information on middleware can be found here 
-- [@NuxtMiddleware](https://nuxtjs.org/examples/middlewares/router)
+More information on middleware can be [found here](https://nuxtjs.org/examples/middlewares/router).
 
 #### Modules
 The modules config in this file is responsible for the config for any modules installed
@@ -86,7 +78,7 @@ such as auth,firestore, functions etc. must be instantiated here prior to their 
 Furthermore, methods must also be initialized here such as state change for the store. 
 
 
-## Build Setup
+### Build Setup
 
 ```bash
 # install dependencies
@@ -105,13 +97,25 @@ $ npm run generate
 
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
-## Special Directories
+## Directories
+This is the directory structure of the project, some of which have special behaviors.
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+### `.git`
+
+Directory containing git repository and version control. If you are reading this, chances are you are somewhat familiar.
+
+More information about the usage of this directory on [their website](https://github.com/).
+
+### `.nuxt`
+
+Directory containing Nuxt Framework files. Currently running Nuxt V2.
+
+More information about the usage of this directory on [their website](https://nuxtjs.org/).
 
 ### `assets`
 
 The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+This project contains additional assets folders for groups of images such as us-states or alert types. Additionally, there is a PSD folder containing template files.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
 
@@ -121,12 +125,34 @@ The components directory contains your Vue.js components. Components make up the
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
 
+### `data`
+
+The data directory contains test data needed for testing various parts of the app. Likely removed before release.
+
+### `functions`
+
+This directory contains your applications functions, mostly used for node modules. Contains imported js packages.
+More information about the usage of this directory in [the documentation](https://nodejs.org/api/modules.html).
+
 ### `layouts`
 
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
+The layouts folder only contains one file currently which is the default.vue file. This
+file is the layout structure of the entire website and must be included. Currently the app contains a TheNavbar & TheFooter component wrapping the main structure.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
 
+### `middleware folder`
+
+The middleware folder only has an auth.js file in it currently and it must be configured
+in the nuxt.config.js file prior to it being read in the app. This file checks the route
+trying to be reached as well as the authentication of a user. If the user isn't authenticated
+and is trying to reach a protected route they will be redirected. Upon authentication through
+the signin page they will again be redirected but this time into the protected route.
+
+### `node_modules`
+
+This directory contains your applications node modules. Contains imported js packages.
+More information about the usage of this directory in [the documentation](https://nodejs.org/api/modules.html).
 
 ### `pages`
 
@@ -151,5 +177,16 @@ More information about the usage of this directory in [the documentation](https:
 ### `store`
 
 This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
+The store a store is a centralized location to keep up with data that is available across all the application components. 
+The store handles all states of the user. It handles any major changes in state and ensures that all errors are handled
+in this manner. It also creates for a better/bug-free environment when implemented. The store
+works in this manner: it contains actions, mutations, and state. When an action is called 
+the state is changed using a mutation. More information on the usage (highly recommend) of
+the store can be found here
+- [@NuxtStore](https://vueschool.io/articles/vuejs-tutorials/what-is-a-store-in-vue-js/#:~:text=In%20Vue%2C%20as%20well%20as,that%20belongs%20in%20a%20store.)
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+
+### `test`
+
+This directory contains your test files, facilitated through Nuxt and Jest. more can be in [the documentation](https://jestjs.io/).
