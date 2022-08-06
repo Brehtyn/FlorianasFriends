@@ -1,30 +1,37 @@
 <template>
-  <div class="rounded-3xl m-28 p-10 border-2">
+  <div class="form-box rounded-3xl p-10 border-2">
+    <h1 class="auth_page_title">Sign Up</h1>
     <form
       class="flex flex-col items-center justify-between"
       @submit.stop.prevent="createUser"
     >
       <div class="pt-2">
-        <label>Name (First and Last)</label>
+        <label>Full Name</label>
         <div>
-          <input
-            type="text"
-            name="name"
-            class="
-              shadow
-              appearance-none
-              border
-              rounded
-              w-full
-              py-2
-              px-3
-              text-grey-darker
-              mb-3
-              input"
-            v-model="auth.name"/>
+          <ValidationProvider rules="required|alpha_spaces" v-slot="{ errors }">
+            <input
+              type="text"
+              name="name"
+              class="
+                textbox-style
+                shadow
+                appearance-none
+                border
+                rounded
+                w-full
+                py-2
+                px-3
+                text-grey-darker
+                mb-3
+                input
+              "
+              v-model="auth.name"
+            />
+            <div id="validation-error">{{ errors[0] }}</div>
+          </ValidationProvider>
         </div>
       </div>
-      <div class="pt2">
+      <!-- <div class="pt-2">
         <AppDropdown :toggleTrigger="stateSelection">
           <label slot="dropDown_label">Lable for Slot Component</label>
           <input
@@ -41,53 +48,67 @@
               px-3
               text-grey-darker
               mb-3
-              input"
-            v-model="stateSelection"/>
+              input
+            "
+            v-model="stateSelection"
+          />
           <AppDropdownContent>
             <AppDropdownItem>Action 1</AppDropdownItem>
             <AppDropdownItem>Action 2</AppDropdownItem>
             <AppDropdownItem>Action 3</AppDropdownItem>
           </AppDropdownContent>
         </AppDropdown>
-      </div>
+      </div> -->
       <div class="pt-2">
         <label>Email</label>
         <div>
-          <input
-            type="email"
-            name="email"
-            class="
-              shadow
-              appearance-none
-              border
-              rounded
-              w-full
-              py-2
-              px-3
-              text-grey-darker
-              mb-3
-              input"
-            v-model="auth.email"/>
+          <ValidationProvider rules="required|email" v-slot="{ errors }">
+            <input
+              type="email"
+              name="email"
+              class="
+                textbox-style
+                shadow
+                appearance-none
+                border
+                rounded
+                w-full
+                py-2
+                px-3
+                text-grey-darker
+                mb-3
+                input
+              "
+              v-model="auth.email"
+            />
+            <div id="validation-error">{{ errors[0] }}</div>
+          </ValidationProvider>
         </div>
       </div>
       <div class="pt-2">
         <label>Password</label>
         <div>
-          <input
-            type="password"
-            name="password"
-            class="
-              shadow
-              appearance-none
-              border
-              rounded
-              w-full
-              py-2
-              px-3
-              text-grey-darker
-              mb-3
-              input"
-            v-model="auth.password"/>
+          <ValidationProvider rules="required|min:9" v-slot="{ errors }">
+            <input
+              type="password"
+              name="password"
+              class="
+                textbox-style
+                shadow
+                appearance-none
+                border
+                rounded
+                w-full
+                py-2
+                px-3
+                text-grey-darker
+                mb-3
+                input
+              "
+              v-model="auth.password"
+            />
+            <div id="validation-error">{{ errors[0] }}</div>
+          </ValidationProvider>
         </div>
       </div>
       <div class="pt-4">
@@ -105,12 +126,25 @@
             px-3
             text-grey-darker
             mb-3
-            input">
+            input
+          "
+        >
           Create Account
         </button>
-        <p class="align-text-center text-gray-400 tracking-tight font-light text-sm w-100">
+        <p
+          class="
+            align-text-center
+            text-gray-400
+            tracking-tight
+            font-light
+            text-sm
+            w-100
+          "
+        >
           Already have an account? Sign in
-          <NuxtLink class="signup-link text-blue-600" to="/auth/signin">here</NuxtLink>.
+          <NuxtLink class="signup-link text-blue-600" to="/auth/signin"
+            >here</NuxtLink
+          >.
         </p>
       </div>
     </form>
@@ -122,12 +156,14 @@ import { states } from "../../data/states";
 import AppDropdown from "../../components/AppDropdown.vue";
 import AppDropdownContent from "../../components/AppDropdownContent.vue";
 import AppDropdownItem from "../../components/AppDropdownItem.vue";
+import { ValidationProvider } from "vee-validate";
 
 export default {
   components: {
     AppDropdown,
     AppDropdownContent,
     AppDropdownItem,
+    ValidationProvider,
   },
   data() {
     return {
@@ -252,6 +288,31 @@ export default {
 </script>
 
 <style scoped>
+.form-box {
+  width: 80vw;
+  max-width: 1250px;
+  margin: 12vh auto;
+}
+
+.auth_page_title {
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.textbox-style {
+  width: 65vw;
+  max-width: 320px;
+  border: 2px solid #eaeaea;
+}
+#validation-error {
+  color: red;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 12px;
+}
+
 .signup-link {
   text-decoration: black underline !important;
 }

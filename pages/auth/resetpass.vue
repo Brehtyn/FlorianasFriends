@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="form-box rounded-3xl p-10 border-2">
-      <h1 class="auth_page_title">Sign In</h1>
+      <h1 class="auth_page_title"> Password Reset </h1>
       <form
         class="flex flex-col items-center justify-between"
         @submit.stop.prevent="login"
@@ -32,36 +32,9 @@
             </ValidationProvider>
           </div>
         </div>
-        <div class="pt-2">
-          <label>Password</label>
-          <div>
-            <ValidationProvider rules="min:1" v-slot="{ errors }">
-              <input
-                type="password"
-                name="password"
-                class="
-                  textbox-style
-                  shadow
-                  appearance-none
-                  border
-                  rounded
-                  w-full
-                  py-2
-                  px-3
-                  text-grey-darker
-                  mb-3
-                  input
-                "
-                v-model="auth.password"
-              />
-              <div id="validation-error">{{ errors[0] }}</div>
-            </ValidationProvider>
-          </div>
-        </div>
         <div class="pt-4">
           <button
-            type="submit"
-            @click="() => login()"
+            @click="() => forgotPassword()"
             class="
               button-hover
               shadow
@@ -76,38 +49,23 @@
               input
             "
           >
-            Log In
+            Send Reset Link
           </button>
-          <p
-            class="
-              align-text-center
-              text-gray-400
-              tracking-tight
-              font-light
-              text-sm
-              w-100
-            "
-          >
-            Don't have an account? Get started
-            <NuxtLink class="signup-link text-blue-600" to="/auth/signup"
-              >here</NuxtLink
-            >.
-          </p>
-          <p
-            class="
-              align-text-center
-              text-gray-400
-              tracking-tight
-              font-light
-              text-sm
-              w-100
-            "
-          >
-            Forgot your password? Reset it
-            <NuxtLink class="signup-link text-blue-600" to="/auth/resetpass"
-              >here</NuxtLink
-            >.
-          </p>
+        <p
+          class="
+            align-text-center
+            text-gray-400
+            tracking-tight
+            font-light
+            text-sm
+            w-100
+          "
+        >
+          Already have an account? Sign in
+          <NuxtLink class="signup-link text-blue-600" to="/auth/signin"
+            >here</NuxtLink
+          >.
+        </p>
         </div>
       </form>
     </div>
@@ -130,16 +88,15 @@ export default {
     };
   },
   methods: {
-    login() {
+    forgotPassword() {
       this.$fire.auth
-        .signInWithEmailAndPassword(this.auth.email, this.auth.password)
+        .sendPasswordResetEmail(this.auth.email)
+        .then(function () {
+          let resetText = "Reset link has been emailed to " + this.auth.email;
+          console.log(resetText);
+        })
         .catch(function (error) {
           console.log(error.message);
-        })
-        .then((user) => {
-          //we are signed in
-          console.log(user.user);
-          $nuxt.$router.push("/");
         });
     },
   },
