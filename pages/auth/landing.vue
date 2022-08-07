@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import PostBase from '~/components/PostBase.vue';
+import PostBase from '~/components/postBase.vue';
 // import pets from '../../data/petData'
 import users from '../../data/userData'
 import posts from '../../data/postData'

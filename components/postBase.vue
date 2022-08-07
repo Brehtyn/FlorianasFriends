@@ -141,10 +141,10 @@
 </template>
 
 <script>
-import PostSend from "~/components/PostSend.vue";
-import PostInfo from "~/components/PostInfo.vue";
-import PostLikes from "~/components/PostLikes.vue";
-import PostComments from "~/components/PostComments.vue";
+import PostSend from "~/components/postSend.vue";
+import PostInfo from "~/components/postInfo.vue";
+import PostLikes from "~/components/postLikes.vue";
+import PostComments from "~/components/postComments.vue";
 
 export default {
   components: {
