@@ -1,7 +1,8 @@
 <template>
   <section>
     <div class="form-box rounded-3xl p-10 border-2">
-      <h1 class="auth_page_title"> Password Reset </h1>
+      <Nuxt-Img class="auth_page_pic" src="logo.png" />
+      <h1 class="auth_page_title">Password Reset</h1>
       <form
         class="flex flex-col items-center justify-between"
         @submit.stop.prevent="login"
@@ -51,21 +52,21 @@
           >
             Send Reset Link
           </button>
-        <p
-          class="
-            align-text-center
-            text-gray-400
-            tracking-tight
-            font-light
-            text-sm
-            w-100
-          "
-        >
-          Already have an account? Sign in
-          <NuxtLink class="signup-link text-blue-600" to="/auth/signin"
-            >here</NuxtLink
-          >.
-        </p>
+          <p
+            class="
+              align-text-center
+              text-gray-400
+              tracking-tight
+              font-light
+              text-sm
+              w-100
+            "
+          >
+            Already have an account? Sign in
+            <NuxtLink class="signup-link text-blue-600" to="/auth/signin"
+              >here</NuxtLink
+            >.
+          </p>
         </div>
       </form>
     </div>
@@ -74,6 +75,7 @@
 
 <script>
 import { ValidationProvider } from "vee-validate";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 export default {
   components: {
@@ -94,8 +96,10 @@ export default {
         .then(function () {
           let resetText = "Reset link has been emailed to " + this.auth.email;
           console.log(resetText);
+          
         })
         .catch(function (error) {
+          console.log(error.code);
           console.log(error.message);
         });
     },
@@ -115,6 +119,12 @@ export default {
   font-weight: 500;
   text-align: center;
   margin-bottom: 1rem;
+}
+.auth_page_pic {
+  margin: 0 auto;
+  width: 100px;
+  max-width: 100%;
+  height: auto;
 }
 
 .textbox-style {

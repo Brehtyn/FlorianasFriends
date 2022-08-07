@@ -1,5 +1,6 @@
 <template>
   <div class="form-box rounded-3xl p-10 border-2">
+    <Nuxt-Img class="auth_page_pic" src="logo.png" />
     <h1 class="auth_page_title">Sign Up</h1>
     <form
       class="flex flex-col items-center justify-between"
@@ -299,6 +300,12 @@ export default {
   font-weight: 500;
   text-align: center;
   margin-bottom: 1rem;
+}
+.auth_page_pic {
+  margin: 0 auto;
+  width: 100px;
+  max-width: 100%;
+  height: auto;
 }
 
 .textbox-style {

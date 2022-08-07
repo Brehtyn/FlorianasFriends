@@ -41,7 +41,7 @@
 
       <button @click="showPostInfo = true">
         <div class="picture_area">
-          <nuxt-img src="defaults/dog.jpg" />
+          <Nuxt-Img src="defaults/dog.jpg" />
         </div>
       </button>
 

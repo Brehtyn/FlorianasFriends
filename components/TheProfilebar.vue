@@ -1,7 +1,10 @@
 <template>
   <div @click="$emit('close-Profilebar')" class="bg">
     <div class="profilebar_modal">
-      <button @click="$emit('close-Profilebar')" class="flex row space-around p-6 hover:opacity-80">
+      <button
+        @click="$emit('close-Profilebar')"
+        class="flex row space-around p-6 hover:opacity-80"
+      >
         <img class="-mt-2" src="~assets/right_arrow.svg" />
         <p class="px-5">Close</p>
       </button>
@@ -26,7 +29,8 @@
 </template>
 
 <script>
-
+export default {
+};
 </script>
 
 <style scoped>
@@ -62,7 +66,7 @@
   text-align: center;
 }
 .profilebar_contents > nav > ul > li {
-  padding: .7rem 0;
+  padding: 0.7rem 0;
 }
 
 hr {

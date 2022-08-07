@@ -1,6 +1,7 @@
 <template>
   <section>
     <div class="form-box rounded-3xl p-10 border-2">
+      <Nuxt-Img class="auth_page_pic" src="logo.png" />
       <h1 class="auth_page_title">Sign In</h1>
       <form
         class="flex flex-col items-center justify-between"
@@ -35,7 +36,7 @@
         <div class="pt-2">
           <label>Password</label>
           <div>
-            <ValidationProvider rules="min:1" v-slot="{ errors }">
+            <ValidationProvider rules="required" v-slot="{ errors }">
               <input
                 type="password"
                 name="password"
@@ -158,6 +159,12 @@ export default {
   font-weight: 500;
   text-align: center;
   margin-bottom: 1rem;
+}
+.auth_page_pic {
+  margin: 0 auto;
+  width: 100px;
+  max-width: 100%;
+  height: auto;
 }
 
 .textbox-style {

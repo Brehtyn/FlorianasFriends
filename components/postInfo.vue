@@ -9,12 +9,12 @@
       <hr />
       <div class="info_content">
         <div class="info_content_title">
-          <nuxt-img id="alert-badge" :src="'alerts/' + lost_type + '.png'" />
+          <Nuxt-Img id="alert-badge" :src="'alerts/' + lost_type + '.png'" />
           <div class="title_split">
             <h1>EMERGENCY ALERT ({{ lost_type }})</h1>
             <h2>Missing {{ pet_species }} : {{ pet_name }}</h2>
           </div>
-          <nuxt-img
+          <Nuxt-Img
             id="location-badge"
             :src="'us-states/' + location_lost + '.png'"
           />
@@ -24,7 +24,7 @@
           <div>
             <p>{{ desc }}</p>
           </div>
-          <nuxt-img :src="'species/' + pet_species + '.png'" />
+          <Nuxt-Img :src="'species/' + pet_species + '.png'" />
         </div>
 
         <iframe
@@ -36,9 +36,9 @@
         ></iframe>
 
         <div class="info_picture_gallery">
-          <nuxt-img :src="image" :alt="alt" />
-          <nuxt-img :src="image" :alt="alt" />
-          <nuxt-img :src="image" :alt="alt" />
+          <Nuxt-Img :src="image" :alt="alt" />
+          <Nuxt-Img :src="image" :alt="alt" />
+          <Nuxt-Img :src="image" :alt="alt" />
         </div>
 
         <div class="postcommentAction">
