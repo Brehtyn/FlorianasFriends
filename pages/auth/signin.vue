@@ -112,15 +112,23 @@
         </div>
       </form>
     </div>
+
+    <GeneralAlert
+      v-show="showGeneralAlert"
+      :message="error_message"
+      @close-GeneralAlert="showGeneralAlert = false"
+    />
   </section>
 </template>
 
 <script>
 import { ValidationProvider } from "vee-validate";
+import GeneralAlert from "~/components/generalAlert.vue";
 
 export default {
   components: {
     ValidationProvider,
+    GeneralAlert,
   },
   data() {
     return {
@@ -128,13 +136,20 @@ export default {
         email: "",
         password: "",
       },
+      showGeneralAlert: false,
+      error_message: "There has been an error.",
     };
   },
   methods: {
     login() {
+      //used in Nuxt to pass error messages from nested function to parent function
+      var vm = this;
+
       this.$fire.auth
         .signInWithEmailAndPassword(this.auth.email, this.auth.password)
         .catch(function (error) {
+          vm.error_message = error;
+          vm.showGeneralAlert = true;
           console.log(error.message);
         })
         .then((user) => {

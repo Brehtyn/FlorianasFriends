@@ -3,10 +3,7 @@
     <div class="form-box rounded-3xl p-10 border-2">
       <Nuxt-Img class="auth_page_pic" src="logo.png" />
       <h1 class="auth_page_title">Password Reset</h1>
-      <form
-        class="flex flex-col items-center justify-between"
-        @submit.stop.prevent="login"
-      >
+      <form class="flex flex-col items-center justify-between">
         <div class="pt-2">
           <label>Email</label>
           <div>
@@ -70,37 +67,50 @@
         </div>
       </form>
     </div>
+
+    <GeneralAlert
+      v-show="showGeneralAlert"
+      :message="alert_message"
+      @close-GeneralAlert="showGeneralAlert = false"
+    />
   </section>
 </template>
 
 <script>
 import { ValidationProvider } from "vee-validate";
-import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import GeneralAlert from "~/components/generalAlert.vue";
 
 export default {
   components: {
     ValidationProvider,
+    GeneralAlert,
   },
   data() {
     return {
       auth: {
         email: "",
-        password: "",
       },
+      showGeneralAlert: false,
+      alert_message: "There has been an error.",
     };
   },
   methods: {
     forgotPassword() {
+      //used in Nuxt to pass error messages from nested function to parent function
+      var vm = this;
+
       this.$fire.auth
         .sendPasswordResetEmail(this.auth.email)
         .then(function () {
           let resetText = "Reset link has been emailed to " + this.auth.email;
           console.log(resetText);
-          
+          vm.alert_message = resetText;
+          vm.showGeneralAlert = true;
         })
         .catch(function (error) {
-          console.log(error.code);
           console.log(error.message);
+          vm.alert_message = error;
+          vm.showGeneralAlert = true;
         });
     },
   },

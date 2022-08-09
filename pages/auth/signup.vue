@@ -149,6 +149,12 @@
         </p>
       </div>
     </form>
+
+    <GeneralAlert
+      v-show="showGeneralAlert"
+      :message="error_message"
+      @close-GeneralAlert="showGeneralAlert = false"
+    />
   </div>
 </template>
 
@@ -158,6 +164,7 @@ import AppDropdown from "../../components/AppDropdown.vue";
 import AppDropdownContent from "../../components/AppDropdownContent.vue";
 import AppDropdownItem from "../../components/AppDropdownItem.vue";
 import { ValidationProvider } from "vee-validate";
+import GeneralAlert from "~/components/generalAlert.vue";
 
 export default {
   components: {
@@ -165,6 +172,7 @@ export default {
     AppDropdownContent,
     AppDropdownItem,
     ValidationProvider,
+    GeneralAlert,
   },
   data() {
     return {
@@ -179,6 +187,8 @@ export default {
       disabled: true,
       cities: [],
       citiesSelection: null,
+      showGeneralAlert: false,
+      error_message: "There has been an error.",
     };
   },
   //computing states as options
@@ -190,10 +200,15 @@ export default {
     createUser() {
       const db = this.$fire.firestore;
 
+      //used in Nuxt to pass error messages from nested function to parent function
+      var vm = this;
+
       this.$fire.auth
         .createUserWithEmailAndPassword(this.auth.email, this.auth.password)
         .catch(function (error) {
           console.log(error.message);
+          vm.error_message = error.message;
+          vm.showGeneralAlert = true;
         })
         .then((user) => {
           //we are signed in
@@ -215,6 +230,8 @@ export default {
             })
             .catch((e) => {
               console.log("Error adding user to the DB: ", e);
+              vm.error_message = error;
+              vm.showGeneralAlert = true;
             });
 
           console.log(user);

@@ -29,29 +29,8 @@
 </template>
 
 <script>
-import { fireBase } from "/Users/admin/Desktop/FlorianasFriends/nuxt.config.js";
-
 export default {
-  data() {
-    return {
-    };
-  },
-  methods: {
-    async isUserLoggedin() {
-      const user = await fireBase.auth().currentUser;
-      try {
-        if (user) {
-          this.user = user;
-          return true;
-        } else {
-          return false;
-        }
-      } catch (error) {
-        console.log(error);
-        console.error(e);
-      }
-    },
-  },
+ 
 };
 </script>
 
