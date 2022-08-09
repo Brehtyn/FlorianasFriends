@@ -8,17 +8,16 @@
       </div>
 
       <div class="like_feed" v-for="(user, index) in userNames" :key="index">
-        <PostLikesChild :name="user.user_username"/>
+        <PostLikesChild :name="user.user_username" />
       </div>
-
     </div>
   </div>
 </template>
 
 <script>
 export default {
-    // props: ['userIDs']
-    props: ['userNames']
+  // props: ['userIDs']
+  props: ["userNames"],
 };
 </script>
 
@@ -46,12 +45,12 @@ export default {
   border: 2px solid var(--clr-whiteborder);
   padding: 0;
   z-index: 50;
-  filter: drop-shadow(0 .5mm .5mm rgba(0, 0, 0, 0.5));
-  overflow-y: scroll;
+  filter: drop-shadow(0 0.5mm 0.5mm rgba(0, 0, 0, 0.5));
+  overflow-y: auto;
 }
 @media screen and (min-width: 700px) {
   .PostLikes_modal {
-    top:10%;
+    top: 10%;
   }
 }
 

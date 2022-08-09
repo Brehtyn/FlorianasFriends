@@ -7,12 +7,15 @@
       @close-PostLikes="showPostLikes = false"
       :userNames="post.likes"
     />
-
+    <PostCommentModal
+      v-show="showPostCommentModal"
+      @close-PostCommentModal="showPostCommentModal = false"
+      :comments="post.comments"
+    />
+    <PostSend v-show="showPostSend" @close-PostSend="showPostSend = false" />
     <!-- :userIDs="pet.likes_users_id" -->
 
     <div class="PostBase_modal post_style shadow shadow-lg">
-      <PostSend v-show="showPostSend" @close-PostSend="showPostSend = false" />
-
       <div class="pet_data">
         <div class="profile_pic">
           <img src="~assets/defaults/profile.svg" />
@@ -61,7 +64,7 @@
           >
             <img src="~assets/heart_filled.svg" />
           </button>
-          <button @click="showPostComments = true">
+          <button @click="showPostCommentModal = true">
             <img src="~assets/chat.svg" />
           </button>
         </span>
@@ -115,24 +118,23 @@
             </p>
           </div>
 
-          <button class="general_button" @click="showPostComments = true">
+          <!-- For loop for comment and users that comment -->
+          <!-- Need to import user data to get name from user id -->
+          <PostComments class="w-100" :comments="post.comments" />
+
+          <button class="general_button" @click="showPostCommentModal = true">
             <!-- Need to add prop for # off comments and leads and pass here -->
             <h2 id="view_comments">View all # lead(s) & # comment(s)</h2>
           </button>
 
-          <!-- For loop for comment and users that comment -->
-          <!-- Need to import user data to get name from user id -->
-          <PostComments
-            class="pt-2 pl-3"
-            v-show="showPostComments"
-            @close-PostComments="showPostComments = false"
-            :comments="post.comments"
-          />
-
           <div class="postcommentAction">
             <!-- Need to export comment / lead to post bucket -->
-            <button class="comment_button">Comment Support</button>
-            <button class="lead_button">Report Sighting</button>
+            <button @click="showPostCommentModal = true" class="comment_button">
+              Comment Support
+            </button>
+            <button @click="showPostCommentModal = true" class="lead_button">
+              Report Sighting
+            </button>
           </div>
         </div>
       </div>
@@ -145,6 +147,7 @@ import PostSend from "~/components/postSend.vue";
 import PostInfo from "~/components/postInfo.vue";
 import PostLikes from "~/components/postLikes.vue";
 import PostComments from "~/components/postComments.vue";
+import PostCommentModal from "~/components/postCommentModal.vue";
 
 export default {
   components: {
@@ -152,6 +155,7 @@ export default {
     PostInfo,
     PostLikes,
     PostComments,
+    PostCommentModal,
   },
   // Possibly compute users here and then just pass down
   // List of user names instead of IDs and then doing it from there
@@ -163,7 +167,7 @@ export default {
       showPostSend: false,
       showPostInfo: false,
       showPostLikes: false,
-      showPostComments: false,
+      showPostCommentModal: false,
     };
   },
   computed: {

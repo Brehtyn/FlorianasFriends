@@ -1,10 +1,11 @@
 <template>
-  <div class="PostCommentsChild">
+  <div class="PostCommentModalChild">
     <div class="comment_structure">
       <div>
         <img src="~assets/profile.svg" height="16p" width="auto" />
       </div>
-      <p><b> {{comment.user_username}} </b></p>
+      <p><b>  </b></p>
+      <span> <b> {{comment.user_username}} </b> | <b> {{lead_bool}} </b> </span>
       <p>{{comment.comment}}</p>
     </div>
   </div>
@@ -12,14 +13,25 @@
 
 <script>
 export default {
-  props: ["comment"]
+  props: {
+    comment: {
+      type: String,
+      required: true
+    },
+    // determines if comment is a lead or not
+    lead_bool: {
+      type: String,
+      required: true,
+      default: false,
+    }
+  }
 };
 </script>
 
 <style scoped>
-.PostCommentsChild {
+.PostCommentModalChild {
   width: 100%;
-  padding: 0 0 0.5rem 0;
+  padding: .5rem;
   margin-bottom: 0.5rem;
 }
 /* Profile Picture */

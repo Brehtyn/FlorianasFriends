@@ -51,7 +51,6 @@ export default {};
   height: 100%;
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.67);
-  border-radius: 10px;
 }
 .PostSend_modal {
   position: fixed;
