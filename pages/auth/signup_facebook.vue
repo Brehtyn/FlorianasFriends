@@ -1,7 +1,7 @@
 <template>
   <div class="form-box rounded-3xl p-10 border-2">
     <Nuxt-Img class="auth_page_pic" src="logo.png" />
-    <h1 class="auth_page_title">Sign Up</h1>
+    <h1 class="auth_page_title">Sign Up Facebook</h1>
     <form
       class="flex flex-col items-center justify-between"
       @submit.stop.prevent="createUser"
@@ -132,50 +132,6 @@
         >
           Create Account
         </button>
-        <p class="align-text-center text-gray-400 mb-3 w-100">or</p>
-
-        <Nuxt-Link
-          to="/auth/signup_google"
-          class="
-            button-hover
-            shadow
-            appearance-none
-            border
-            rounded
-            w-full
-            py-2
-            px-3
-            text-grey-darker
-            mb-3
-            align-text-center
-            link-button
-            google
-          "
-        >
-          Sign up via Google
-        </Nuxt-Link>
-
-        <Nuxt-Link
-          to="/auth/signup_facebook"
-          class="
-            button-hover
-            shadow
-            appearance-none
-            border
-            rounded
-            w-full
-            py-2
-            px-3
-            text-grey-darker
-            mb-3
-            align-text-center
-            link-button
-            facebook
-          "
-        >
-          Sign up via Facebook
-        </Nuxt-Link>
-
         <p
           class="
             align-text-center
@@ -383,13 +339,5 @@ export default {
 
 .signup-link {
   text-decoration: black underline !important;
-}
-.google {
-  background-color: var(--clr-google-red);
-  color: white;
-}
-.facebook {
-  background-color: var(--clr-facebook-blue);
-  color: white;
 }
 </style>

@@ -16,6 +16,9 @@
     --clr-pink: #FDA4BA;
     --clr-blue: #3944BC;
     --clr-heartred: #b53736;
+
+    --clr-facebook-blue: #4267B2;
+    --clr-google-red: #DB4437;
 }
 
 b {
@@ -75,6 +78,10 @@ b {
     z-index: 50;
     left: -5px;
     top: 1px;
+}
+
+.link-button {
+    display: block;
 }
 
 .container-split-50 {
