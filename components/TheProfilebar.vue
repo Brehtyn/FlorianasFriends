@@ -1,5 +1,6 @@
 <template>
-  <div @click="$emit('close-Profilebar')" class="bg">
+  <div>
+    <div @click="$emit('close-Profilebar')" class="bg"></div>
     <div class="profilebar_modal">
       <button
         @click="$emit('close-Profilebar')"
@@ -10,11 +11,13 @@
       </button>
       <div class="profilebar_contents">
         <img class="w-1/4" src="~assets/defaults/profile.svg" />
-        <span> User Logged In </span>
+        <span> Currently Logged In : </span>
         <hr />
         <nav>
           <ul>
-            <li>Profile</li>
+            <li>
+              <Nuxt-Link to="/auth/profile">Profile</Nuxt-Link>
+            </li>
             <li>Posts</li>
             <li>Leads</li>
             <li>Settings</li>
@@ -29,9 +32,7 @@
 </template>
 
 <script>
-export default {
- 
-};
+export default {};
 </script>
 
 <style scoped>
@@ -52,7 +53,7 @@ export default {
   min-width: 300px;
   max-width: 500px;
   height: 100%;
-  z-index: 50;
+  z-index: 70;
   background-color: var(--clr-whitebg);
   border-left: 2px solid var(--clr-whiteborder);
   filter: drop-shadow(0 -6mm 4mm rgba(0, 0, 0, 0.5));
