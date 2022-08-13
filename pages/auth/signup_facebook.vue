@@ -1,65 +1,11 @@
 <template>
   <div class="form-box rounded-3xl p-10 border-2">
     <Nuxt-Img class="auth_page_pic" src="logo.png" />
-    <h1 class="auth_page_title">Sign Up Facebook</h1>
+    <h1 class="auth_page_title">Continue with Facebook</h1>
     <form
       class="flex flex-col items-center justify-between"
       @submit.stop.prevent="createUser"
     >
-      <div class="pt-2">
-        <label>Full Name</label>
-        <div>
-          <ValidationProvider rules="required|alpha_spaces" v-slot="{ errors }">
-            <input
-              type="text"
-              name="name"
-              class="
-                textbox-style
-                shadow
-                appearance-none
-                border
-                rounded
-                w-full
-                py-2
-                px-3
-                text-grey-darker
-                mb-3
-                input
-              "
-              v-model="auth.name"
-            />
-            <div id="validation-error">{{ errors[0] }}</div>
-          </ValidationProvider>
-        </div>
-      </div>
-      <!-- <div class="pt-2">
-        <AppDropdown :toggleTrigger="stateSelection">
-          <label slot="dropDown_label">Lable for Slot Component</label>
-          <input
-            slot="toggler"
-            type="text"
-            name="name"
-            class="
-              shadow
-              appearance-none
-              border
-              rounded
-              w-full
-              py-2
-              px-3
-              text-grey-darker
-              mb-3
-              input
-            "
-            v-model="stateSelection"
-          />
-          <AppDropdownContent>
-            <AppDropdownItem>Action 1</AppDropdownItem>
-            <AppDropdownItem>Action 2</AppDropdownItem>
-            <AppDropdownItem>Action 3</AppDropdownItem>
-          </AppDropdownContent>
-        </AppDropdown>
-      </div> -->
       <div class="pt-2">
         <label>Email</label>
         <div>
@@ -86,32 +32,6 @@
           </ValidationProvider>
         </div>
       </div>
-      <div class="pt-2">
-        <label>Password</label>
-        <div>
-          <ValidationProvider rules="required|min:9" v-slot="{ errors }">
-            <input
-              type="password"
-              name="password"
-              class="
-                textbox-style
-                shadow
-                appearance-none
-                border
-                rounded
-                w-full
-                py-2
-                px-3
-                text-grey-darker
-                mb-3
-                input
-              "
-              v-model="auth.password"
-            />
-            <div id="validation-error">{{ errors[0] }}</div>
-          </ValidationProvider>
-        </div>
-      </div>
       <div class="pt-4">
         <button
           type="submit"
@@ -132,6 +52,60 @@
         >
           Create Account
         </button>
+
+        <p
+          class="
+            align-text-center
+            text-gray-400
+            mb-3
+            w-100
+            item-highlight-surrounded
+          "
+        >
+          or
+        </p>
+
+        <Nuxt-Link
+          to="/auth/signup"
+          class="
+            button-hover
+            shadow
+            appearance-none
+            border
+            rounded
+            w-full
+            py-2
+            px-3
+            text-grey-darker
+            mb-3
+            align-text-center
+            link-button
+          "
+        >
+          Sign up with Email
+        </Nuxt-Link>
+
+        <Nuxt-Link
+          to="/auth/signup_google"
+          class="
+            button-hover
+            shadow
+            appearance-none
+            border
+            rounded
+            w-full
+            py-2
+            px-3
+            text-grey-darker
+            mb-3
+            align-text-center
+            link-button
+            google
+          "
+        >
+          Sign up with Google
+        </Nuxt-Link>
+
         <p
           class="
             align-text-center
@@ -159,18 +133,11 @@
 </template>
 
 <script>
-import { states } from "../../data/states";
-import AppDropdown from "../../components/AppDropdown.vue";
-import AppDropdownContent from "../../components/AppDropdownContent.vue";
-import AppDropdownItem from "../../components/AppDropdownItem.vue";
 import { ValidationProvider } from "vee-validate";
 import GeneralAlert from "~/components/generalAlert.vue";
 
 export default {
   components: {
-    AppDropdown,
-    AppDropdownContent,
-    AppDropdownItem,
     ValidationProvider,
     GeneralAlert,
   },
@@ -178,15 +145,8 @@ export default {
     return {
       auth: {
         email: "",
-        password: "",
-        name: "",
       },
-      location: "",
       debounceTimer: null,
-      stateSelection: null,
-      disabled: true,
-      cities: [],
-      citiesSelection: null,
       showGeneralAlert: false,
       error_message: "There has been an error.",
     };
@@ -216,10 +176,6 @@ export default {
           const userData = {
             userID: userID,
             email: user.user.email,
-            name: this.auth.name,
-            location: this.location,
-            postsLikedOrSaved: [],
-            settings: [],
           };
 
           db.collection("users")
@@ -249,57 +205,6 @@ export default {
         this.location = this.capitalizeFirstLetter(this.location);
         this.fetchCities().then((result) => console.log(result));
       }, 1000);
-    },
-    async fetchCities() {
-      const where = encodeURIComponent(
-        JSON.stringify({
-          name: {
-            $regex: `${this.location}`,
-          },
-        })
-      );
-      const cities = await this.$axios.$get(
-        `https://parseapi.back4app.com/classes/Usabystate_${this.stateSelection}?limit=10&keys=name,containingState&where=${where}`,
-        {
-          headers: {
-            "X-Parse-Application-Id": this.$config.applicationID, // This is your app's application id
-            "X-Parse-REST-API-Key": this.$config.apiKey, // This is your app's REST API key
-          },
-        }
-      );
-      return { cities };
-    },
-    userStateSelection(stateOption) {
-      console.log(stateOption);
-      this.stateSelection = this.firstTwo(stateOption);
-    },
-    //Do not use with the VSelect anymore but could use this to trigger drop down or not
-    dropdownShouldOpen(vSelect) {
-      if (this.stateSelection !== null) {
-        //if there is something selected then enable input
-        this.disabled = false;
-        return vSelect.open;
-      } else {
-        this.disabled = true;
-      }
-      return vSelect.search.length !== 0 && vSelect.open;
-    },
-    dropdownShouldOpenCities(vSelect) {
-      if (this.citiesSelection !== null) {
-        //if there is something selected then enable input
-        return vSelect.open;
-      }
-      return vSelect.search.length !== 0 && vSelect.open;
-    },
-    firstTwo(str) {
-      return str.substring(0, 2);
-    },
-    capitalizeFirstLetter(str) {
-      const words = str.replace(/(^\w{1})|(\s+\w{1})/g, (letter) =>
-        letter.toUpperCase()
-      );
-
-      return words;
     },
   },
 };
@@ -339,5 +244,13 @@ export default {
 
 .signup-link {
   text-decoration: black underline !important;
+}
+.google {
+  background-color: var(--clr-google-blue);
+  color: white;
+}
+.facebook {
+  background-color: var(--clr-facebook-blue);
+  color: white;
 }
 </style>

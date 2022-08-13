@@ -132,7 +132,18 @@
         >
           Create Account
         </button>
-        <p class="align-text-center text-gray-400 mb-3 w-100">or</p>
+
+        <p
+          class="
+            align-text-center
+            text-gray-400
+            mb-3
+            w-100
+            item-highlight-surrounded
+          "
+        >
+          or
+        </p>
 
         <Nuxt-Link
           to="/auth/signup_google"
@@ -152,7 +163,7 @@
             google
           "
         >
-          Sign up via Google
+          Sign up with Google
         </Nuxt-Link>
 
         <Nuxt-Link
@@ -173,7 +184,7 @@
             facebook
           "
         >
-          Sign up via Facebook
+          Continue with Facebook
         </Nuxt-Link>
 
         <p
@@ -385,7 +396,7 @@ export default {
   text-decoration: black underline !important;
 }
 .google {
-  background-color: var(--clr-google-red);
+  background-color: var(--clr-google-blue);
   color: white;
 }
 .facebook {

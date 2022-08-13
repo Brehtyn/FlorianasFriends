@@ -50,7 +50,7 @@ export default {
   max-height: 95%;
   transform: translate(-50%, 0);
   background-color: var(--clr-whitebg);
-  border-radius: 6px 6px 0 0;
+  border-radius: 6px;
   border: 2px solid var(--clr-whiteborder);
   padding: 0;
   z-index: 50;
@@ -98,7 +98,6 @@ export default {
   display: none;
 }
 
-
 .comment_input {
   width: 95%;
   height: 50px;
@@ -107,5 +106,14 @@ export default {
   padding: 0.3rem 1rem;
   margin: 2%;
   outline: none;
+}
+
+.PostCommentModal_modal:after {
+  content: "";
+  display: block;
+  width: 98%;
+  height: 1px;
+  background-color: var(--clr-whiteborder);
+  margin: .5rem 0;
 }
 </style>

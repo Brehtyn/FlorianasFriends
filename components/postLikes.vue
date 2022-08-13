@@ -41,7 +41,7 @@ export default {
   max-height: 80%;
   transform: translate(-50%, 0);
   background-color: var(--clr-whitebg);
-  border-radius: 6px 6px 0 0;
+  border-radius: 6px;
   border: 2px solid var(--clr-whiteborder);
   padding: 0;
   z-index: 50;
@@ -74,5 +74,13 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+.like_feed:last-of-type:after {
+  content: "";
+  display: block;
+  width: 98%;
+  height: 1px;
+  background-color: var(--clr-whiteborder);
+  margin: 1rem 0;
 }
 </style>

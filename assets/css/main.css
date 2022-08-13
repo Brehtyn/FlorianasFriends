@@ -17,8 +17,8 @@
     --clr-blue: #3944BC;
     --clr-heartred: #b53736;
 
-    --clr-facebook-blue: #4267B2;
-    --clr-google-red: #DB4437;
+    --clr-facebook-blue: #3b5999;
+    --clr-google-blue: #4285F4;
 }
 
 b {
@@ -46,6 +46,31 @@ b {
 
 .align-text-left {
     text-align: left;
+}
+
+.item-highlight-surrounded {
+}
+.item-highlight-surrounded:before {
+    content: '';
+    position: relative;
+    display: block;
+    background: var(--clr-darkgrey);
+    top: 14px;
+    left: calc(100% - 160px);    
+    width: 20px;
+    height: 1px;
+    line-height: normal;
+}
+.item-highlight-surrounded:after {
+    content: '';
+    position: relative;
+    display: block;
+    background: var(--clr-darkgrey);
+    right: calc(100% + -355px);
+    top: -12px;
+    width: 20px;
+    height: 1px;
+    line-height: normal;
 }
 
 .general_button {

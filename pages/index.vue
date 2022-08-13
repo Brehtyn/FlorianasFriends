@@ -28,7 +28,7 @@
 
 @media screen and (min-width: 1370px) {
   .post_style {
-    position: absolute;
+    position: fixed;
     top: calc(4rem + 5px);
     right: calc(370px + 50%);
     width: calc(23% - 20px);
